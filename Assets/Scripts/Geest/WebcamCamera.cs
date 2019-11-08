@@ -1,0 +1,27 @@
+﻿using UnityEngine;
+
+public class WebcamCamera : MonoBehaviour
+{
+    private bool _camAvailable;
+    private WebCamTexture _webcamTexture;
+    
+
+    private void Start()
+    {
+        WebCamDevice[] _devices = WebCamTexture.devices;
+
+        if(_devices.Length == 0)
+        {
+            Debug.Log("No camera detected");
+            _camAvailable = false;
+        }
+
+        for(int i = 0; i < _devices.Length; i++)
+        {
+            _webcamTexture = new WebCamTexture(_devices[i].name);
+            Renderer renderer = GetComponent<Renderer>();
+            renderer.material.SetTexture("_mainTexture",_webcamTexture);
+            _webcamTexture.Play();
+        }
+    }
+}
