@@ -5,6 +5,9 @@ using UnityEngine;
 public class Pek : MonoBehaviour
 {
     private Collider _col;
+    private FixedJoint _joint = null;
+
+    private GameObject _attached;
 
     private bool _heating = false;
     private bool _stick = false;
@@ -40,11 +43,23 @@ public class Pek : MonoBehaviour
             _usable = true;
             _sticked = false;
             this.gameObject.transform.SetParent(null);
+            if (_joint) 
+            {
+                Destroy(_joint);
+                GetComponent<Rigidbody>().mass = 1;
+            }
         }
         else if (_heatingTime > 70)
         {
             _usable = false;
+            Physics.IgnoreCollision(_attached.GetComponent<Collider>(), _col, false);
             this.gameObject.transform.SetParent(null);
+            //if (_joint) 
+            //{
+                Destroy(_joint);
+                GetComponent<Rigidbody>().mass = 1;
+                print("destory");
+            //}
         }
     }
 
@@ -60,10 +75,18 @@ public class Pek : MonoBehaviour
         {
             _stick = false;
             this.gameObject.transform.SetParent(_otherG.transform);
+            _joint = _otherG.AddComponent<FixedJoint>();
+            _joint.connectedBody = this.gameObject.GetComponent<Rigidbody>();
+            Physics.IgnoreCollision(_otherG.GetComponent<Collider>(), _col);
+            _attached = _otherG;
         }
         else if(_stick && _otherG.layer == 10)
         {
             _otherG.transform.SetParent(this.gameObject.transform);
+            _joint = this.gameObject.AddComponent<FixedJoint>();
+            _joint.connectedBody = _otherG.GetComponent<Rigidbody>();
+            Physics.IgnoreCollision(_otherG.GetComponent<Collider>(), _col);
+            _attached = _otherG;
         }
     }
 
