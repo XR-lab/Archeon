@@ -9,7 +9,7 @@ public class Stok : MonoBehaviour
         if (other.gameObject.name == "Pek")
         {
             Pek _pek = other.gameObject.GetComponent<Pek>();
-            if (_pek._usable && _pek._hardend)
+            if (_pek._usable && _pek._sticked)
             {
                 other.transform.SetParent(this.transform);
                 foreach(Transform child in other.transform)
