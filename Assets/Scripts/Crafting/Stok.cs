@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Stok : MonoBehaviour
 {
-    private void OnCollisionStay(Collision other)
+    /*private void OnCollisionStay(Collision other)
     {
         if (other.gameObject.name == "Pek")
         {
@@ -19,5 +19,5 @@ public class Stok : MonoBehaviour
                 
             }
         }
-    }
+    }*/
 }

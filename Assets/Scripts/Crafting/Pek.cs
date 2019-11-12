@@ -4,24 +4,15 @@ using UnityEngine;
 
 public class Pek : MonoBehaviour
 {
-    private Collider _col;
-    private FixedJoint _joint = null;
-
-    private GameObject _attached;
+    private List<GameObject> _attachedGO = new List<GameObject>();
+    private List<FixedJoint> _joints = new List<FixedJoint>();
 
     private bool _heating = false;
     private bool _stick = false;
+    private bool _hard = true;
     
-    [SerializeField]
     private float _heatingTime = 0;
-
-    public bool _usable = false;
-    public bool _sticked = false;
-
-    private void Start()
-    {
-        _col = GetComponent<Collider>();
-    }
+    private bool _sticked = false;
 
     private void Update()
     {
@@ -36,35 +27,51 @@ public class Pek : MonoBehaviour
 
         if (_heatingTime < 30)
         {
-            _usable = false;
+            _hard = true;
             if(!_sticked)
             {
-                _stick = true;
+                Stick();
                 _sticked = true;
             } 
         }
         else if (_heatingTime > 30 && _heatingTime < 70)
         {
-            _usable = true;
+            _hard = false;
             _sticked = false;
-            this.gameObject.transform.SetParent(null);
-            if (_joint) 
+            UnStick();
+
+            if(_attachedGO.Count != 0)
             {
-                Destroy(_joint);
-                GetComponent<Rigidbody>().mass = 1;
+                float p = (_heatingTime - 30) / 70;
+                this.gameObject.GetComponent<Rigidbody>().velocity = this.gameObject.GetComponent<Rigidbody>().velocity * p;
             }
         }
         else if (_heatingTime > 70)
         {
-            _usable = false;
-            Physics.IgnoreCollision(_attached.GetComponent<Collider>(), _col, false);
-            this.gameObject.transform.SetParent(null);
-            if (_joint) 
-            {
-                Destroy(_joint);
-                GetComponent<Rigidbody>().mass = 1;
-            }
+            _hard = false;
         }
+    }
+
+    private void OnCollisionEnter(Collision _other)
+    {
+        if (!_other.gameObject.CompareTag("Craftable"))
+            return;
+
+        
+        if(!_hard)
+        {
+            _attachedGO.Add(_other.gameObject);
+            Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), _other.gameObject.GetComponent<Collider>());
+        }
+    }
+
+    private void OnCollisionExit(Collision _other)
+    {
+        if (_other.gameObject.CompareTag("Craftable"))
+            return;
+
+        _attachedGO.Remove(_other.gameObject);
+        Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), _other.gameObject.GetComponent<Collider>(), false);
     }
 
     private void OnTriggerEnter(Collider _other)
@@ -83,28 +90,6 @@ public class Pek : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision _other)
-    {
-        GameObject _otherG = _other.gameObject;
-        if (_stick && _otherG.layer == 10 && _otherG.tag == "Handles")
-        {
-            _stick = false;
-            this.gameObject.transform.SetParent(_otherG.transform);
-            _joint = _otherG.AddComponent<FixedJoint>();
-            _joint.connectedBody = this.gameObject.GetComponent<Rigidbody>();
-            Physics.IgnoreCollision(_otherG.GetComponent<Collider>(), _col);
-            _attached = _otherG;
-        }
-        else if(_stick && _otherG.layer == 10)
-        {
-            _otherG.transform.SetParent(this.gameObject.transform);
-            _joint = this.gameObject.AddComponent<FixedJoint>();
-            _joint.connectedBody = _otherG.GetComponent<Rigidbody>();
-            Physics.IgnoreCollision(_otherG.GetComponent<Collider>(), _col);
-            _attached = _otherG;
-        }
-    }
-
     private void Heating()
     {
         if (_heatingTime < 100)
@@ -118,6 +103,29 @@ public class Pek : MonoBehaviour
         if (_heatingTime > 0)
         {
             _heatingTime -= .2f;
+        }
+    }
+
+    private void Stick()
+    {
+        foreach(GameObject _GO in _attachedGO)
+        {
+            FixedJoint _joint = this.gameObject.AddComponent<FixedJoint>();
+            _joint.connectedBody = _GO.GetComponent<Rigidbody>();
+            _GO.transform.SetParent(this.transform);
+        }
+    }
+
+    private void UnStick()
+    {
+        foreach (FixedJoint _joint in _joints)
+        {
+            _joint.connectedBody = null;
+            Destroy(_joint);
+        }
+        foreach (GameObject _GO in _attachedGO)
+        {
+            _GO.transform.SetParent(null);
         }
     }
 }
