@@ -25,10 +25,15 @@ public class Pek : MonoBehaviour
 
     private void Update()
     {
-        if (!_heating)
+        if (_heating)
+        {
+            Heating();
+        }
+        else
         {
             Cooling();
         }
+
         if (_heatingTime < 30)
         {
             _usable = false;
@@ -54,23 +59,33 @@ public class Pek : MonoBehaviour
             _usable = false;
             Physics.IgnoreCollision(_attached.GetComponent<Collider>(), _col, false);
             this.gameObject.transform.SetParent(null);
-            //if (_joint) 
-            //{
+            if (_joint) 
+            {
                 Destroy(_joint);
                 GetComponent<Rigidbody>().mass = 1;
-                print("destory");
-            //}
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider _other)
+    {
+        if (_other.gameObject.CompareTag("Fire"))
+        {
+            _heating = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Fire"))
+        {
+            _heating = false;
         }
     }
 
     private void OnCollisionStay(Collision _other)
     {
         GameObject _otherG = _other.gameObject;
-        if (_otherG.name == "Fire")
-        {
-            Heating();
-            _heating = true;
-        }
         if (_stick && _otherG.layer == 10 && _otherG.tag == "Handles")
         {
             _stick = false;
@@ -87,14 +102,6 @@ public class Pek : MonoBehaviour
             _joint.connectedBody = _otherG.GetComponent<Rigidbody>();
             Physics.IgnoreCollision(_otherG.GetComponent<Collider>(), _col);
             _attached = _otherG;
-        }
-    }
-
-    private void OnCollisionExit(Collision other)
-    {
-        if (other.gameObject.name == "Fire")
-        {
-            _heating = false;
         }
     }
 
