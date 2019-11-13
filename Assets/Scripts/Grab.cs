@@ -35,7 +35,7 @@ public class Grab : MonoBehaviour
 
     private void OnTriggerEnter(Collider _other)
     {
-        if (!_other.gameObject.CompareTag("Grabable"))
+        if (_other.gameObject.layer != 10)
             return;
 
         _contactGrabable.Add(_other.gameObject.GetComponent<Grabable>());
@@ -43,7 +43,7 @@ public class Grab : MonoBehaviour
 
     private void OnTriggerExit(Collider _other)
     {
-        if (!_other.gameObject.CompareTag("Grabable"))
+        if (_other.gameObject.layer != 10)
             return;
 
         _contactGrabable.Remove(_other.gameObject.GetComponent<Grabable>());
