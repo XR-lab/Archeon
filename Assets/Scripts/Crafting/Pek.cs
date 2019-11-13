@@ -42,7 +42,7 @@ public class Pek : MonoBehaviour
 
             if(_attachedGO.Count != 0)
             {
-                float p = (_heatingTime - 30) / 70;
+                float p = (_heatingTime - 30) / 50;
                 this.gameObject.GetComponent<Rigidbody>().velocity = this.gameObject.GetComponent<Rigidbody>().velocity * p;
             }
         }
@@ -112,6 +112,7 @@ public class Pek : MonoBehaviour
         {
             FixedJoint _joint = this.gameObject.AddComponent<FixedJoint>();
             _joint.connectedBody = _GO.GetComponent<Rigidbody>();
+            _joints.Add(_joint);
             _GO.transform.SetParent(this.transform);
         }
     }
@@ -120,7 +121,6 @@ public class Pek : MonoBehaviour
     {
         foreach (FixedJoint _joint in _joints)
         {
-            _joint.connectedBody = null;
             Destroy(_joint);
         }
         foreach (GameObject _GO in _attachedGO)
