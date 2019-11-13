@@ -37,17 +37,17 @@ public class PanicBehaviour : StateMachineBehaviour
     {
         animator.transform.position = Vector3.MoveTowards(animator.transform.position, _destination.position ,_speed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             animator.SetBool("IsPanicing", false);
         }
 
-        Debug.DrawLine(animator.transform.position, _destination.transform.position);
+        Debug.DrawLine(animator.transform.position, _destination.transform.position, Color.red);
 
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        Debug.ClearDeveloperConsole();
+
     }
 }
