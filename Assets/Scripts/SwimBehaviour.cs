@@ -29,7 +29,7 @@ public class SwimBehaviour : StateMachineBehaviour
 
         animator.transform.position = Vector3.MoveTowards(animator.transform.position, _destination.position, _speed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             animator.SetBool("IsPanicing", true);
         }
@@ -45,7 +45,7 @@ public class SwimBehaviour : StateMachineBehaviour
             GetDestination();
         }
 
-        Debug.DrawLine(animator.transform.position, _destination.transform.position);
+        Debug.DrawLine(animator.transform.position, _destination.transform.position, Color.green);
 
     }
 
