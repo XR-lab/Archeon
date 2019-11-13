@@ -10,7 +10,7 @@ public class Pek : MonoBehaviour
     private bool _heating = false;
     private bool _stick = false;
     private bool _hard = true;
-    
+    [SerializeField]
     private float _heatingTime = 0;
     private bool _sticked = false;
 
