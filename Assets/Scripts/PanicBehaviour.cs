@@ -64,7 +64,7 @@ public class PanicBehaviour : StateMachineBehaviour
                 animator.SetBool("IsPanicing", false);
                 _panicAmount = 0;
             }
-        }   
+        }
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
