@@ -29,7 +29,7 @@ public class RippleGenerator : MonoBehaviour
         
     }
 
-    private IEnumerator GenerateRipples(int Ripples, float , float timeOffset)
+    private IEnumerator GenerateRipples(int Ripples, float size, float timeOffset)
     {
         yield return new WaitForSeconds(timeOffset);
     }
