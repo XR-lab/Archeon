@@ -65,6 +65,7 @@ public class Grab : MonoBehaviour
         _joint.connectedBody = _targetBody;
 
         _currentGrabable._activeHand = this;
+        _currentGrabable.OnPickup?.Invoke();
     }
 
     private void Drop()
@@ -78,6 +79,7 @@ public class Grab : MonoBehaviour
 
         _joint.connectedBody = null;
 
+        _currentGrabable.OnDrop?.Invoke();
         _currentGrabable._activeHand = null;
         _currentGrabable = null;
     }
