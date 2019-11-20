@@ -40,10 +40,13 @@ public class Pek : MonoBehaviour
             _sticked = false;
             UnStick();
 
-            if(_attachedGO.Count != 0)
+            if (_attachedGO.Count != 0)
             {
-                float p = (_heatingTime - 30) / 50;
-                this.gameObject.GetComponent<Rigidbody>().velocity = this.gameObject.GetComponent<Rigidbody>().velocity * p;
+                if(!_attachedGO[0].gameObject.CompareTag("Bowl"))
+                {
+                    float p = (_heatingTime - 30) / 50;
+                    this.gameObject.GetComponent<Rigidbody>().velocity = this.gameObject.GetComponent<Rigidbody>().velocity * p;
+                }
             }
         }
         else if (_heatingTime > 70)
@@ -54,7 +57,7 @@ public class Pek : MonoBehaviour
 
     private void OnCollisionEnter(Collision _other)
     {
-        if (!_other.gameObject.CompareTag("Craftable"))
+        if (!_other.gameObject.CompareTag("Craftable") || !_other.gameObject.CompareTag("Bowl"))
             return;
 
         
@@ -67,7 +70,7 @@ public class Pek : MonoBehaviour
 
     private void OnCollisionExit(Collision _other)
     {
-        if (_other.gameObject.CompareTag("Craftable"))
+        if (_other.gameObject.CompareTag("Craftable") || !_other.gameObject.CompareTag("Bowl"))
             return;
 
         _attachedGO.Remove(_other.gameObject);
