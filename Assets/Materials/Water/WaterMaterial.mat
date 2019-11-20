@@ -33,12 +33,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_362B7A6F: 0.02
+    - Vector1_362B7A6F: 0.1
     - Vector1_594D4C01: 0.02
-    - Vector1_881B2290: 0.86
+    - Vector1_881B2290: 0.8
     - Vector1_B0B5ACB6: 0
-    - Vector1_DF725B93: 1.55
-    - Vector1_F10F650D: 0.7
+    - Vector1_DF725B93: 1
+    - Vector1_F10F650D: 0.8
     - _AlphaCutoff: 0.5
     - _AlphaCutoffEnable: 0
     - _AlphaDstBlend: 10
@@ -77,6 +77,6 @@ Material:
     - Color_7D22264B: {r: 1, g: 1, b: 1, a: 1}
     - Vector2_1DC12BA6: {r: -0.3, g: -0.7, b: 0, a: 0}
     - Vector2_5960B65F: {r: 0.3, g: 0.7, b: 0, a: 0}
-    - Vector2_81FA7B19: {r: 0.0001, g: 0.0001, b: 0, a: 0}
+    - Vector2_81FA7B19: {r: 2, g: 2, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
