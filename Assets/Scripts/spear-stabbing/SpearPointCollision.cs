@@ -12,16 +12,13 @@ public class SpearPointCollision : MonoBehaviour
     private bool _hasFishOnTip;
 
     void OnTriggerEnter(Collider other) {
-        if (Mathf.Pow(2, other.gameObject.layer) == _terrainLayer.value && !_grabbed) {
+        // Checks if layer mask contains layer
+        if (_terrainLayer == (_terrainLayer | ( 1 << other.gameObject.layer)) && !_grabbed) {
             _rb.constraints = RigidbodyConstraints.FreezeAll;
         }
-        if (Mathf.Pow(2, other.gameObject.layer) == _huntingLayer.value && !_hasFishOnTip) {
+        if (_huntingLayer == (_huntingLayer | (1 << other.gameObject.layer)) && !_hasFishOnTip) {
             CatchFish(other.gameObject.transform);
         }
-    }
-
-    public void OnPickUp() {
-        _rb.constraints = RigidbodyConstraints.None;
     }
 
     void CatchFish(Transform fish) {
