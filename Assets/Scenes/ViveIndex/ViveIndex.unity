@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 194.13075, g: 274.83246, b: 436.35693, a: 1}
+  m_IndirectSpecularColor: {r: 194.13612, g: 274.83295, b: 436.35754, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1676,7 +1676,7 @@ PrefabInstance:
     - target: {fileID: 1368153278676643180, guid: acfb4b1d9e179ec468fcf8505b01004d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.36
       objectReference: {fileID: 0}
     - target: {fileID: 1368153278676643180, guid: acfb4b1d9e179ec468fcf8505b01004d,
         type: 3}
@@ -1686,7 +1686,7 @@ PrefabInstance:
     - target: {fileID: 1368153278676643180, guid: acfb4b1d9e179ec468fcf8505b01004d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: 1368153278676643180, guid: acfb4b1d9e179ec468fcf8505b01004d,
         type: 3}
@@ -6199,16 +6199,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5537494733765320052, guid: 2ebd2494f3c231f469d77b6684c72f42,
+    - target: {fileID: 3572481884582745704, guid: 2ebd2494f3c231f469d77b6684c72f42,
         type: 3}
-      propertyPath: m_Name
-      value: Player
+      propertyPath: _grabAction.actionPath
+      value: /actions/default/in/GrabPinch
       objectReference: {fileID: 0}
-    - target: {fileID: 5537494733765320052, guid: 2ebd2494f3c231f469d77b6684c72f42,
+    - target: {fileID: 5537494733763147730, guid: 2ebd2494f3c231f469d77b6684c72f42,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 651655337}
+    - target: {fileID: 5537494733764179542, guid: 2ebd2494f3c231f469d77b6684c72f42,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 530015513}
     - target: {fileID: 5537494733765069964, guid: 2ebd2494f3c231f469d77b6684c72f42,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6264,22 +6269,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3572481884582745704, guid: 2ebd2494f3c231f469d77b6684c72f42,
-        type: 3}
-      propertyPath: _grabAction.actionPath
-      value: /actions/default/in/GrabPinch
-      objectReference: {fileID: 0}
-    - target: {fileID: 5537494733763147730, guid: 2ebd2494f3c231f469d77b6684c72f42,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 651655337}
-    - target: {fileID: 5537494733764179542, guid: 2ebd2494f3c231f469d77b6684c72f42,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 530015513}
     - target: {fileID: 5537494733765300496, guid: 2ebd2494f3c231f469d77b6684c72f42,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537494733765320052, guid: 2ebd2494f3c231f469d77b6684c72f42,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537494733765320052, guid: 2ebd2494f3c231f469d77b6684c72f42,
         type: 3}
       propertyPath: m_IsActive
       value: 0
