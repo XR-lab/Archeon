@@ -43,7 +43,7 @@ public class FOV : MonoBehaviour {
 				float dstToTarget = Vector3.Distance (transform.position, target.position);
 
 				if(!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask)){
-					visibleTargets.Add (target);
+					visibleTargets.Add(target);
 				}
 			}
 		}

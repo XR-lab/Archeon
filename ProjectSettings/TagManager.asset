@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - SpearTip
+  - projectile
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -36,7 +38,7 @@ TagManager:
   - 
   - 
   - 
-  - SpearTip
+  - 
   - 
   m_SortingLayers:
   - name: Default
