@@ -158,12 +158,12 @@ MonoBehaviour:
   poseEditorExpanded: 1
   blendEditorExpanded: 0
   poseNames:
-  - CubePose (MAIN)
+  - '[not set]'
   previewLeftHandPrefab: {fileID: 1000013348574242, guid: 638779290bce1af49b356f33dcc6fccf,
     type: 3}
   previewRightHandPrefab: {fileID: 1000010304998954, guid: 6def53d002137b747aec0b29551e0e25,
     type: 3}
-  skeletonMainPose: {fileID: 11400000, guid: 7698ce6c9a8924f4c810d69991a6789c, type: 2}
+  skeletonMainPose: {fileID: 0}
   skeletonAdditionalPoses: []
   showLeftPreview: 0
   showRightPreview: 0
