@@ -7,6 +7,7 @@ public class SpearPointCollision : MonoBehaviour
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private LayerMask _terrainLayer;
     [SerializeField] private LayerMask _huntingLayer;
+    [SerializeField] private Transform _fishHolder;
     private bool _grabbed;
     public bool Grabbed { get { return _grabbed; } set { _grabbed = value; } }
     private bool _hasFishOnTip;
@@ -22,8 +23,10 @@ public class SpearPointCollision : MonoBehaviour
     }
 
     void CatchFish(Transform fish) {
-        fish.position = transform.position;
-        fish.rotation = transform.rotation;
-        fish.SetParent(transform);
+        Debug.LogError("Stabbing the fish: " + fish.name);
+        fish.GetComponent<Animator>().enabled = false;
+        fish.position = _fishHolder.position;
+        fish.rotation = _fishHolder.rotation;
+        fish.SetParent(_fishHolder);
     }
 }
