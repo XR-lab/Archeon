@@ -4,30 +4,30 @@ using UnityEngine;
 
 public class SwimBehaviour : StateMachineBehaviour
 {
-    private float _mass = 100;
+    //private float _mass = 100;
     private float _maxVelocity = 3;
-    private float _maxForce = 15;
+    //private float _maxForce = 15;
     private float _angleBetween = 0.0f;
     private Vector3 _angle;
 
 
-    private Vector3 _velocity;
+    //private Vector3 _velocity;
     //private Vector3 _destination;
     private Vector3 _target;
 
-
     private GameObject _this;
-    public FOV _fov;
+    private FOV _fov;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
+        
         _this = animator.transform.gameObject;
         _fov = _this.GetComponent<FOV>();
-        
+
         //_velocity = Vector3.zero;
     }
 
-    public override void   OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+    public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
         Transform[] _visibleTargets = _this.GetComponent<FOV>().visibleTargets.ToArray();
 
@@ -44,21 +44,21 @@ public class SwimBehaviour : StateMachineBehaviour
             float _angleDegrees = Vector3.Angle(animator.transform.position, _visibleTargets[0].transform.position);
             _angle = new Vector3(0, _angleDegrees, 0);
             //animator.transform.rotation = Quaternion.Lerp(Quaternion.identity, Quaternion.Euler(0, -_angle, 0), 1f);
-            //animator.transform.rotation = Quaternion.RotateTowards(animator.transform.rotation, Quaternion.LookRotation(animator.transform.position - _angle), 0);
+            animator.transform.rotation = Quaternion.RotateTowards(animator.transform.rotation, Quaternion.LookRotation(animator.transform.position + _angle), 0);
         }
 
-        Vector3 _desiredVelocity = _targetDir - animator.transform.position;
-        _desiredVelocity = _desiredVelocity.normalized * _maxVelocity;
+        //Vector3 _desiredVelocity = _targetDir - animator.transform.position;
+        //_desiredVelocity = _desiredVelocity.normalized * _maxVelocity;
 
-        Vector3 _steering = _desiredVelocity - _velocity;
-        _steering = Vector3.ClampMagnitude(_steering, _maxForce);
-        _steering /= _mass;
+        //Vector3 _steering = _desiredVelocity - _velocity;
+        //_steering = Vector3.ClampMagnitude(_steering, _maxForce);
+        //_steering /= _mass;
 
-        _velocity = Vector3.ClampMagnitude(_velocity + _steering, _maxVelocity);
-        animator.transform.position += _velocity * Time.deltaTime;
-        animator.transform.forward = _velocity.normalized;
+        //_velocity = Vector3.ClampMagnitude(_velocity + _steering, _maxVelocity);
+        //animator.transform.position += _velocity * Time.deltaTime;
+        //animator.transform.forward = _velocity.normalized;
 
-        Debug.DrawRay(animator.transform.position, _desiredVelocity.normalized * 5, Color.magenta);
+        //Debug.DrawRay(animator.transform.position, _desiredVelocity.normalized * 5, Color.magenta);
 
         //else
         //{
@@ -80,8 +80,8 @@ public class SwimBehaviour : StateMachineBehaviour
         //animator.transform.position += _velocity * Time.deltaTime;
         //animator.transform.forward = _velocity.normalized;
 
-        Debug.DrawRay(animator.transform.position, _velocity.normalized * 5, Color.green);
-        Debug.DrawRay(animator.transform.position, animator.transform.forward * 10, Color.yellow);
+        //Debug.DrawRay(animator.transform.position, _velocity.normalized * 5, Color.green);
+        //Debug.DrawRay(animator.transform.position, animator.transform.forward * 10, Color.yellow);
 
 
         //if (Input.GetKeyDown(KeyCode.Space))
