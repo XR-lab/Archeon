@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 public class Pek : MonoBehaviour
 {
+    private Interactable _interact;
+
     private List<GameObject> _attachedGO = new List<GameObject>();
     private List<FixedJoint> _joints = new List<FixedJoint>();
 
@@ -13,6 +16,11 @@ public class Pek : MonoBehaviour
     [SerializeField]
     private float _heatingTime = 0;
     private bool _sticked = false;
+
+    private void Start()
+    {
+        _interact = GetComponent<Interactable>();
+    }
 
     private void Update()
     {
@@ -117,6 +125,14 @@ public class Pek : MonoBehaviour
             _joint.connectedBody = _GO.GetComponent<Rigidbody>();
             _joints.Add(_joint);
             _GO.transform.SetParent(this.transform);
+
+            if(_GO.CompareTag("handles"))
+            {
+                GetComponent<Interactable>().enabled = false;
+                if (_GO.CompareTag("handles"))
+                    return;
+                _GO.GetComponent<Interactable>().enabled = false;
+            }
         }
     }
 
@@ -129,6 +145,10 @@ public class Pek : MonoBehaviour
         foreach (GameObject _GO in _attachedGO)
         {
             _GO.transform.SetParent(null);
+            if (_GO.gameObject.GetComponent<Interactable>().enabled == false)
+            {
+                _GO.gameObject.GetComponent<Interactable>().enabled = true;
+            }
         }
     }
 }
