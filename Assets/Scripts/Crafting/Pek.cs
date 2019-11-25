@@ -6,7 +6,7 @@ using Valve.VR.InteractionSystem;
 public class Pek : MonoBehaviour
 {
     private Interactable _interact;
-
+    [SerializeField]
     private List<GameObject> _attachedGO = new List<GameObject>();
     private List<FixedJoint> _joints = new List<FixedJoint>();
 
@@ -66,26 +66,28 @@ public class Pek : MonoBehaviour
 
     private void OnCollisionEnter(Collision _other)
     {
-        if (!_other.gameObject.CompareTag("Craftable") || !_other.gameObject.CompareTag("Bowl") || !_other.gameObject.CompareTag("Handles"))
+        if (_other.gameObject.layer != 10)
             return;
-        print(_other.gameObject.name);
+
         if (!_hard)
         {
             _attachedGO.Add(_other.gameObject);
             if(_other.gameObject.CompareTag("Craftable") || _other.gameObject.CompareTag("Handles")) 
             {
-                Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), _other.gameObject.GetComponentInChildren<Collider>());
+                Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), _other.gameObject.GetComponent<Collider>());
+                print("ignore");
             }
         }
     }
 
     private void OnCollisionExit(Collision _other)
     {
-        if (_other.gameObject.CompareTag("Craftable") || !_other.gameObject.CompareTag("Bowl"))
+        if (_other.gameObject.layer != 10)
             return;
 
-        _attachedGO.Remove(_other.gameObject);
-        Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), _other.gameObject.GetComponent<Collider>(), false);
+        print("igignore");
+        //_attachedGO.Remove(_other.gameObject);
+        //Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), _other.gameObject.GetComponent<Collider>(), false);
     }
 
     private void OnTriggerEnter(Collider _other)
@@ -128,14 +130,14 @@ public class Pek : MonoBehaviour
             _joint.connectedBody = _GO.GetComponent<Rigidbody>();
             _joints.Add(_joint);
             _GO.transform.SetParent(this.transform);
-
+/*
             if(_GO.CompareTag("handles"))
             {
                 GetComponent<Interactable>().enabled = false;
                 if (_GO.CompareTag("handles"))
                     return;
                 _GO.GetComponent<Interactable>().enabled = false;
-            }
+            }*/
         }
     }
 
