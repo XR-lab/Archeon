@@ -12,6 +12,7 @@ public class Pek : MonoBehaviour
 
     private bool _heating = false;
     private bool _stick = false;
+    [SerializeField]
     private bool _hard = true;
     [SerializeField]
     private float _heatingTime = 0;
@@ -65,14 +66,16 @@ public class Pek : MonoBehaviour
 
     private void OnCollisionEnter(Collision _other)
     {
-        if (!_other.gameObject.CompareTag("Craftable") || !_other.gameObject.CompareTag("Bowl"))
+        if (!_other.gameObject.CompareTag("Craftable") || !_other.gameObject.CompareTag("Bowl") || !_other.gameObject.CompareTag("Handles"))
             return;
-
-        
-        if(!_hard)
+        print(_other.gameObject.name);
+        if (!_hard)
         {
             _attachedGO.Add(_other.gameObject);
-            Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), _other.gameObject.GetComponent<Collider>());
+            if(_other.gameObject.CompareTag("Craftable") || _other.gameObject.CompareTag("Handles")) 
+            {
+                Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), _other.gameObject.GetComponentInChildren<Collider>());
+            }
         }
     }
 
