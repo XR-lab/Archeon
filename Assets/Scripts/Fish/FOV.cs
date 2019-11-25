@@ -28,7 +28,7 @@ public class FOV : MonoBehaviour {
 	IEnumerator FindTargetsWithDelay(float delay){
 		while (true) {
 			yield return new WaitForSeconds (delay);
-			FindVisibleTargets ();
+			FindVisibleTargets();
 		}
 	}
 
