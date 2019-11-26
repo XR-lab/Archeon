@@ -133,7 +133,7 @@ Material:
     - Vector1_B0B5ACB6: 1
     - Vector1_B2CED2EF: 0.11
     - Vector1_DF725B93: 1
-    - Vector1_F10F650D: 0.98
+    - Vector1_F10F650D: 1.17
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -260,7 +260,7 @@ Material:
     - Color_7D22264B: {r: 1, g: 1, b: 1, a: 0}
     - Vector2_1DC12BA6: {r: -0.84, g: -0.7, b: 0, a: 0}
     - Vector2_5960B65F: {r: 0.3, g: 0.7, b: 0, a: 0}
-    - Vector2_81FA7B19: {r: 3, g: 3, b: 0, a: 0}
+    - Vector2_81FA7B19: {r: 5, g: 5, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
