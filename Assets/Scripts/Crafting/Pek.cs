@@ -74,7 +74,7 @@ public class Pek : MonoBehaviour
             _attachedGO.Add(_other.gameObject);
             if(_other.gameObject.CompareTag("Craftable") || _other.gameObject.CompareTag("Handles")) 
             {
-                Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), _other.gameObject.GetComponent<Collider>());
+                Physics.IgnoreCollision(this.gameObject.GetComponentInChildren<Collider>(), _other.gameObject.GetComponentInChildren<Collider>());
                 print("ignore");
             }
         }
@@ -87,7 +87,7 @@ public class Pek : MonoBehaviour
 
         print("igignore");
         //_attachedGO.Remove(_other.gameObject);
-        //Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), _other.gameObject.GetComponent<Collider>(), false);
+        //Physics.IgnoreCollision(this.gameObject.GetComponentInChildren<Collider>(), _other.gameObject.GetComponentInChildren<Collider>(), false);
     }
 
     private void OnTriggerEnter(Collider _other)
