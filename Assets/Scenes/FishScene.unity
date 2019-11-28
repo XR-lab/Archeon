@@ -1702,7 +1702,7 @@ PrefabInstance:
     - target: {fileID: 4663425851492342945, guid: dacc7cdb5b1ac4d1aac111d9c16c18bd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4663425851492342945, guid: dacc7cdb5b1ac4d1aac111d9c16c18bd,
         type: 3}
@@ -1712,22 +1712,22 @@ PrefabInstance:
     - target: {fileID: 4663425851492342945, guid: dacc7cdb5b1ac4d1aac111d9c16c18bd,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4663425851492342945, guid: dacc7cdb5b1ac4d1aac111d9c16c18bd,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.8987857
+      value: 0.9063079
       objectReference: {fileID: 0}
     - target: {fileID: 4663425851492342945, guid: dacc7cdb5b1ac4d1aac111d9c16c18bd,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4663425851492342945, guid: dacc7cdb5b1ac4d1aac111d9c16c18bd,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.43838826
+      value: 0.42261827
       objectReference: {fileID: 0}
     - target: {fileID: 4663425851492342945, guid: dacc7cdb5b1ac4d1aac111d9c16c18bd,
         type: 3}
@@ -1742,14 +1742,15 @@ PrefabInstance:
     - target: {fileID: 4663425851492342945, guid: dacc7cdb5b1ac4d1aac111d9c16c18bd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 127.99801
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 4663425851492342945, guid: dacc7cdb5b1ac4d1aac111d9c16c18bd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8837763005906094879, guid: dacc7cdb5b1ac4d1aac111d9c16c18bd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dacc7cdb5b1ac4d1aac111d9c16c18bd, type: 3}
 --- !u!1 &897860758
 GameObject:
