@@ -11,8 +11,9 @@ public class SwimBehaviour : StateMachineBehaviour
     private Vector3 _angle;
 
 
+
     //private Vector3 _velocity;
-    //private Vector3 _destination;
+    private Vector3 _destination;
     private Vector3 _target;
 
     private GameObject _this;
@@ -20,7 +21,6 @@ public class SwimBehaviour : StateMachineBehaviour
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        
         _this = animator.transform.gameObject;
         _fov = _this.GetComponent<FOV>();
 
@@ -40,11 +40,24 @@ public class SwimBehaviour : StateMachineBehaviour
 
         if (_fov.visibleTargets.Count > 0)
         {
+            var currentDistance = -1f;
+            foreach (Transform _trans in _fov.visibleTargets)
+            {
+                float dist = Vector3.Distance(animator.transform.position, _trans.position);
+                if(currentDistance == -1f || dist < currentDistance)
+                {
+                    currentDistance = dist;
+                    _destination = _trans.position;
+                }
+            }
+
+            Debug.Log(_fov.visibleTargets.Count);
             Debug.Log("Avoiding");
-            float _angleDegrees = Vector3.Angle(animator.transform.position, _visibleTargets[0].transform.position);
+            //float _angleDegrees = Vector3.Angle(animator.transform.position, _visibleTargets[0].transform.position);
+            float _angleDegrees = Vector3.Angle(animator.transform.position, _destination);
             _angle = new Vector3(0, _angleDegrees, 0);
             //animator.transform.rotation = Quaternion.Lerp(Quaternion.identity, Quaternion.Euler(0, -_angle, 0), 1f);
-            animator.transform.rotation = Quaternion.RotateTowards(animator.transform.rotation, Quaternion.LookRotation(animator.transform.position + _angle), 0);
+            animator.transform.rotation = Quaternion.RotateTowards(animator.transform.rotation, Quaternion.LookRotation(animator.transform.position - _angle), 18 * Time.deltaTime);
         }
 
         //Vector3 _desiredVelocity = _targetDir - animator.transform.position;
@@ -82,6 +95,8 @@ public class SwimBehaviour : StateMachineBehaviour
 
         //Debug.DrawRay(animator.transform.position, _velocity.normalized * 5, Color.green);
         //Debug.DrawRay(animator.transform.position, animator.transform.forward * 10, Color.yellow);
+
+        Debug.DrawRay(animator.transform.position, _destination, Color.yellow);
 
 
         //if (Input.GetKeyDown(KeyCode.Space))
