@@ -8,6 +8,8 @@ TagManager:
   - Fire
   - Craftable
   - Bowl
+  - Stone
+  - Flint
   layers:
   - Default
   - TransparentFX
