@@ -21,8 +21,8 @@ MonoBehaviour:
     pinkyFingerMovementType: 0
     ignoreRootPoseData: 1
     ignoreWristPoseData: 1
-    position: {x: 0, y: -0.017014919, z: 0.016067086}
-    rotation: {x: -0.9063078, y: 0, z: 0, w: -0.4226183}
+    position: {x: 0.00026653407, y: 0.016212814, z: -0.058935527}
+    rotation: {x: 0.2489391, y: 0.7243465, z: 0.22838552, w: 0.6009922}
     bonePositions:
     - {x: -0, y: 0, z: 0}
     - {x: -0.034037687, y: 0.03650266, z: 0.16472164}
@@ -96,8 +96,8 @@ MonoBehaviour:
     pinkyFingerMovementType: 0
     ignoreRootPoseData: 1
     ignoreWristPoseData: 1
-    position: {x: 0, y: -0.01702067, z: 0.016071988}
-    rotation: {x: 0.9063078, y: 0, z: 0, w: 0.4226183}
+    position: {x: 0.0002671094, y: 0.01620765, z: -0.05893593}
+    rotation: {x: 0.2489391, y: 0.7243465, z: 0.22838552, w: 0.6009922}
     bonePositions:
     - {x: -0, y: 0, z: 0}
     - {x: -0.034037687, y: 0.03650266, z: 0.16472164}
