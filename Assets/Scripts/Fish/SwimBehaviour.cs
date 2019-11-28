@@ -30,7 +30,6 @@ public class SwimBehaviour : StateMachineBehaviour
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
         Transform[] _visibleTargets = _this.GetComponent<FOV>().visibleTargets.ToArray();
-
         _target = animator.transform.forward * _maxVelocity;
 
         Vector3 _targetDir = _target - animator.transform.position;
@@ -52,12 +51,17 @@ public class SwimBehaviour : StateMachineBehaviour
             }
 
             Debug.Log(_fov.visibleTargets.Count);
-            Debug.Log("Avoiding");
+            Debug.Log("Destination: " + _destination);
             //float _angleDegrees = Vector3.Angle(animator.transform.position, _visibleTargets[0].transform.position);
             float _angleDegrees = Vector3.Angle(animator.transform.position, _destination);
             _angle = new Vector3(0, _angleDegrees, 0);
+
+            Debug.Log("_angleDegrees: " + _angleDegrees);
+            Debug.Log("_angle: " + _angle);
+
             //animator.transform.rotation = Quaternion.Lerp(Quaternion.identity, Quaternion.Euler(0, -_angle, 0), 1f);
             animator.transform.rotation = Quaternion.RotateTowards(animator.transform.rotation, Quaternion.LookRotation(animator.transform.position - _angle), 18 * Time.deltaTime);
+            Debug.Log("animator.transform.rotation: " + animator.transform.rotation);
         }
 
         //Vector3 _desiredVelocity = _targetDir - animator.transform.position;
@@ -109,5 +113,5 @@ public class SwimBehaviour : StateMachineBehaviour
     public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
 
-    }        
+    }
 }
