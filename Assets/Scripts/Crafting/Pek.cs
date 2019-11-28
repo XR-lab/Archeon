@@ -64,46 +64,40 @@ public class Pek : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision _other)
-    {
-        if (_other.gameObject.layer != 10)
-            return;
-
-        if (!_hard)
-        {
-            _attachedGO.Add(_other.gameObject);
-            if(_other.gameObject.CompareTag("Craftable") || _other.gameObject.CompareTag("Handles")) 
-            {
-                Physics.IgnoreCollision(this.gameObject.GetComponentInChildren<Collider>(), _other.gameObject.GetComponentInChildren<Collider>());
-                print("ignore");
-            }
-        }
-    }
-
-    private void OnCollisionExit(Collision _other)
-    {
-        if (_other.gameObject.layer != 10)
-            return;
-
-        print("igignore");
-        //_attachedGO.Remove(_other.gameObject);
-        //Physics.IgnoreCollision(this.gameObject.GetComponentInChildren<Collider>(), _other.gameObject.GetComponentInChildren<Collider>(), false);
-    }
-
     private void OnTriggerEnter(Collider _other)
     {
         if (_other.gameObject.CompareTag("Fire"))
         {
             _heating = true;
         }
+
+        print(_other.name);
+
+        if (_other.gameObject.layer != 10)
+            return;
+
+        if (!_hard)
+        {
+            _attachedGO.Add(_other.gameObject.transform.parent.gameObject);
+            if(_other.gameObject.CompareTag("Craftable") || _other.gameObject.CompareTag("Handles")) 
+            {
+                Physics.IgnoreCollision(this.gameObject.transform.GetChild(0).gameObject.GetComponent<Collider>(), _other.gameObject.GetComponent<Collider>());
+            }
+        }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider _other)
     {
-        if (other.gameObject.CompareTag("Fire"))
+        if (_other.gameObject.CompareTag("Fire"))
         {
             _heating = false;
         }
+
+        if (_other.gameObject.layer != 10)
+            return;
+
+        _attachedGO.Remove(_other.gameObject.transform.parent.gameObject);
+        Physics.IgnoreCollision(this.gameObject.transform.GetChild(0).gameObject.GetComponent<Collider>(), _other.gameObject.GetComponent<Collider>(), false);
     }
 
     private void Heating()
