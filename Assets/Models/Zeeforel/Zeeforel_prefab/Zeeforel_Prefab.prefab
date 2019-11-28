@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!95 &391238365
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7115513147016785292}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 01cb548cec4c84fb4b671eee37dffa6b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &6117383509077349112
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -927199367670048503, guid: c2b1b78ec0e5f44cf92faa6314340cbc,
+        type: 3}
+      propertyPath: m_Name
+      value: Zeeforel_Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: c2b1b78ec0e5f44cf92faa6314340cbc,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c049aaabc316a4fbe8223c00b29f6fb2, type: 2}
+    - target: {fileID: -5306878212059562124, guid: c2b1b78ec0e5f44cf92faa6314340cbc,
+        type: 3}
+      propertyPath: m_Name
+      value: Zeeforel
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c2b1b78ec0e5f44cf92faa6314340cbc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.46776915
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c2b1b78ec0e5f44cf92faa6314340cbc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.32
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c2b1b78ec0e5f44cf92faa6314340cbc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.2873645
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c2b1b78ec0e5f44cf92faa6314340cbc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c2b1b78ec0e5f44cf92faa6314340cbc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c2b1b78ec0e5f44cf92faa6314340cbc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c2b1b78ec0e5f44cf92faa6314340cbc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c2b1b78ec0e5f44cf92faa6314340cbc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c2b1b78ec0e5f44cf92faa6314340cbc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c2b1b78ec0e5f44cf92faa6314340cbc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c2b1b78ec0e5f44cf92faa6314340cbc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145113924234407793, guid: c2b1b78ec0e5f44cf92faa6314340cbc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: de82f64b8d5c44c94bf84b072155c5e7, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c2b1b78ec0e5f44cf92faa6314340cbc, type: 3}
+--- !u!1 &7115513147016785292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5306878212059562124, guid: c2b1b78ec0e5f44cf92faa6314340cbc,
+    type: 3}
+  m_PrefabInstance: {fileID: 6117383509077349112}
+  m_PrefabAsset: {fileID: 0}
