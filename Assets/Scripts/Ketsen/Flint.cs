@@ -27,7 +27,7 @@ public class Flint : MonoBehaviour
         {
             print(_RG.velocity.magnitude);
             //Instantiate(_spark, (this.transform.position + _col.transform.position) / 2, Quaternion.identity);
-            Instantiate(_flintShard[Random.Range(0, _flintShard.Count)], (this.transform.position + _col.transform.position), Quaternion.identity);
+            Instantiate(_flintShard[Random.Range(0, _flintShard.Count)], (this.transform.position + _col.transform.position)/2, Quaternion.identity);
         }
     }
 
