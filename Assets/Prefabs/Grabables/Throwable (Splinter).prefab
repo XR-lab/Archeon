@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 6613205214616693829}
   - component: {fileID: 6613205190395890377}
   - component: {fileID: 6613205214637538143}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Throwable (Splinter)
-  m_TagString: Untagged
+  m_TagString: Craftable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,7 +116,7 @@ MonoBehaviour:
   snapAttachEaseInCompleted: 0
   skeletonPoser: {fileID: 0}
   handFollowTransform: 1
-  highlightOnHover: 1
+  highlightOnHover: 0
   hideHighlight: []
 --- !u!114 &6613205190395890377
 MonoBehaviour:
@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 3119715587827617553}
   - component: {fileID: 198780416391352006}
   - component: {fileID: 4274618047395717195}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Splinter_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
