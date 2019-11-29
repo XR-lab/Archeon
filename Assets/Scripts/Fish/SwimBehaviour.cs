@@ -60,7 +60,7 @@ public class SwimBehaviour : StateMachineBehaviour
             Debug.Log("_angle: " + _angle);
 
             //animator.transform.rotation = Quaternion.Lerp(Quaternion.identity, Quaternion.Euler(0, -_angle, 0), 1f);
-            animator.transform.rotation = Quaternion.RotateTowards(animator.transform.rotation, Quaternion.LookRotation(animator.transform.position - _angle), 18 * Time.deltaTime);
+            animator.transform.rotation = Quaternion.RotateTowards(animator.transform.rotation, Quaternion.Euler(0f, _this.gameObject.transform.rotation.y - _angleDegrees, 0f), 1f);
             Debug.Log("animator.transform.rotation: " + animator.transform.rotation);
         }
 
