@@ -31,7 +31,7 @@ public class RippleGenerator : MonoBehaviour
         public float dimmingRate
         {
             private set { _dimmingRate = dimmingRate; }
-            get { return _dimmingRate;}
+            get { return _dimmingRate; }
         }
         private float _dimmingRate;
 
@@ -48,8 +48,8 @@ public class RippleGenerator : MonoBehaviour
             _y = cy;
             _dimmingRate = dimmingRate;
             _volume = volume;
-            _waves = new Wave[radius]; 
-            for(int i = 0; i < radius; i++)
+            _waves = new Wave[radius];
+            for (int i = 0; i < radius; i++)
             {
                 Wave wave = new Wave(_volume);
                 _waves[i] = wave;
@@ -62,7 +62,7 @@ public class RippleGenerator : MonoBehaviour
             {
                 private get { return _volume; }
                 set { _volume = Volume; }
-            } 
+            }
             private float _volume;
 
             private float _travelledDistance;
@@ -81,9 +81,10 @@ public class RippleGenerator : MonoBehaviour
         }
     }
 
-    public class OnRipple : UnityEvent<Texture2D> { };
+    public class OnRipple : UnityEvent<Texture> { };
 
     public OnRipple onRipple = new OnRipple();
+
     [SerializeField]
     private int _textureHeight;
 
@@ -93,28 +94,27 @@ public class RippleGenerator : MonoBehaviour
     [SerializeField]
     private int _interval;
 
-    private Texture2D _sampleTexture;
+    [SerializeField]
+    private Texture _rippleBrush;
 
-    private List<Ripple> _ripples;    
+    [SerializeField]
+    private Texture _defaultHeightMap;
+
+    [SerializeField]
+    private RenderTexture _bufferTexture;
+
+    [SerializeField]
+    private RenderTexture _finalTexture;
+
+    private List<Ripple> _ripples;
 
     // Start is called before the first frame update
     void Start()
     {
         _textureWidth = _textureWidth != 0 ? _textureWidth : 400;
         _textureHeight = _textureHeight != 0 ? _textureHeight : 400;
-        _sampleTexture = new Texture2D(_textureWidth, 
-                                       _textureHeight);
+
         _ripples = new List<Ripple>();
-        Color[] heightMapDefault = new Color[_textureWidth*_textureHeight];
-
-        Color[] canvas = _sampleTexture.GetPixels();
-
-        for (int i = 0; i < canvas.Length; i++)
-        {
-            heightMapDefault[i] = new Color(0.5f, 0.5f, 0.5f);
-        }
-
-        _sampleTexture.SetPixels(heightMapDefault);
     }
 
     //Instantiates a ripple that will be drawn in the heightmap
@@ -125,8 +125,8 @@ public class RippleGenerator : MonoBehaviour
         Ripple ripple = new Ripple((int)position.x, (int)position.y, rippleStrength, 0.01f, radius);
 
         _ripples.Add(ripple);
-        
-        StartCoroutine(DrawRipple(_ripples[_ripples.Count-1]));
+
+        StartCoroutine(DrawRipple(_ripples[_ripples.Count - 1]));
     }
 
     //Generates a ripple by drawing circles
@@ -136,25 +136,25 @@ public class RippleGenerator : MonoBehaviour
         Ripple.Wave[] waves = ripple.waves;
         for (int i = 0; i < waves.Length; i++)
         {
-            float intensity = Mathf.Sin(i*0.11f-1.8f)/Mathf.Pow(1.1f,i*0.11f-1.8f);
+            /*float intensity = Mathf.Sin(i * 0.11f - 1.8f) / Mathf.Pow(1.1f, i * 0.11f - 1.8f);
 
-            float rgb = (intensity + 1.156f)/ 2.021f*0.3f+0.4f ;
+            float rgb = (intensity + 1.156f) / 2.021f * 0.3f + 0.4f;
+            
+            Color color = new Color(0.5f,0.5f,0.5f);
 
-            Debug.LogError(rgb);
+            DrawCircle(ripple.x, ripple.y, i, color);*/
 
-            Color color = new Color(rgb,rgb,rgb);
+           //Graphics.CopyTexture(_rippleBrush, 0, 0, 0, 0, 128, 128, _bufferTexture, 0, 0,
+           //     Random.Range(0, 1920), Random.Range(0, 1920));
+           //Graphics.Blit(_bufferTexture, _finalTexture);
 
-            DrawCircle(ripple.x, ripple.y, i, color);
-
-            onRipple.Invoke(_sampleTexture);
-
-            if(i % _interval == 0)
+            if (i % _interval == 0)
                 yield return new WaitForEndOfFrame();
         }
 
-        foreach(Ripple.Wave wave in waves)
+        foreach (Ripple.Wave wave in waves)
         {
-            if(ripple.dimmingRate <= wave.GetVolume(ripple.dimmingRate))
+            if (ripple.dimmingRate <= wave.GetVolume(ripple.dimmingRate))
             {
                 lowestPoint = false;
                 break;
@@ -166,11 +166,11 @@ public class RippleGenerator : MonoBehaviour
     }
 
     //Draw a circle on the sampleTexture
-    private void DrawCircle(int x, int y, int r, Color color)
+    /*private void DrawCircle(int x, int y, int r, Color color)
     {
         float radius = Mathf.Ceil(r / Mathf.Sqrt(2));
         int diamater = 1 / 4 - r;
-        
+        Graphics.Blit(,)
         for (int p = 0; p <= radius; p++)
         {
             _sampleTexture.SetPixel(x + p, y + r, color);
@@ -190,5 +190,5 @@ public class RippleGenerator : MonoBehaviour
         }
 
         _sampleTexture.Apply();
-    }
+    }*/
 }

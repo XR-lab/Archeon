@@ -33,7 +33,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Water_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 010b42d679d759e4793a8dff1f0f776f, type: 3}
+        m_Texture: {fileID: 8400000, guid: 54f0f9f1581e5344d82da84f68f3ebfa, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:

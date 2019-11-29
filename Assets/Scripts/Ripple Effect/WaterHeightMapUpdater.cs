@@ -8,8 +8,8 @@ public class WaterHeightMapUpdater : MonoBehaviour
 
     void Start()
     {
-        _material = gameObject.GetComponent<MeshRenderer>().material;
-        gameObject.GetComponent<RippleGenerator>().onRipple.AddListener(ReplaceTexture);
+        //_material = gameObject.GetComponent<MeshRenderer>().material;
+        //gameObject.GetComponent<RippleGenerator>().onRipple.AddListener(ReplaceTexture);
     }
     // Event when there is a water ripple generated
     public void ReplaceTexture(Texture2D heightMap)

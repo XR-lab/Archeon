@@ -6,7 +6,7 @@ public class WaterInteractable : MonoBehaviour
 {
 
     [SerializeField]
-    private int _waterLayer;
+    private LayerMask _waterLayer;
 
     [SerializeField]
     private float _rippleVolume;
@@ -17,6 +17,11 @@ public class WaterInteractable : MonoBehaviour
     [SerializeField]
     private int _rippleRadius;
 
+    private Vector3 origin = new Vector3();
+    private Vector3 direction = new Vector3();
+
+    
+
     void Start()
     {
         _rippleRadius = _rippleRadius != 0 && _rippleRadius > 0 ? _rippleRadius : 50;
@@ -25,18 +30,45 @@ public class WaterInteractable : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+        Debug.DrawLine(origin, origin+direction, Color.red);
+    }
+
     //Trigger when water got touched
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.layer == _waterLayer)
+        if (other.gameObject.layer == ~_waterLayer.value)
         {
             Debug.Log("water");
+            int layer = 1 << _waterLayer;
 
             RippleGenerator generator = other.gameObject.GetComponent<RippleGenerator>();
-            Debug.LogError(new Vector2(
-                other.contacts[other.contactCount - 1].point.x, other.contacts[other.contactCount - 1].point.z));
+            Vector2 pos = new Vector2(
+                other.contacts[other.contactCount - 1].point.x,
+                other.contacts[other.contactCount - 1].point.z
+                );
+
+            Ray ray = new Ray(other.contacts[other.contactCount - 1].point + Vector3.up, Vector3.down);
+            RaycastHit hit;
+            origin = ray.origin;
+            direction = ray.direction*5;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                Debug.LogError(hit.collider.name);
+                Debug.LogError(hit.collider.transform.gameObject.layer + " == " + ~_waterLayer);
+                if (hit.collider.gameObject.layer == ~_waterLayer)
+                {
+                    pos = new Vector2(hit.textureCoord.x,hit.textureCoord.y);
+                    Debug.LogError("hit");
+                    Debug.LogError(pos);
+                }
+            }
+
             StartCoroutine(generator.GenerateRipple(new Vector2(
-                other.contacts[other.contactCount-1].point.x, other.contacts[other.contactCount-1].point.z), 
+                pos.x, 
+                pos.y), 
                 _rippleVolume, _rippleRadius, _timeDelay));
         }
     }
