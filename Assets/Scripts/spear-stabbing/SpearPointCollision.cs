@@ -14,6 +14,7 @@ public class SpearPointCollision : MonoBehaviour
     private bool _grabbed;
     public bool Grabbed { get { return _grabbed; } set { _grabbed = value; } }
     private bool _hasFishOnTip;
+    public bool HasFishOnTip { get { return _hasFishOnTip; } set { _hasFishOnTip = value; } }
 
     void OnTriggerEnter(Collider other) {
         // Checks if layer mask contains layer
