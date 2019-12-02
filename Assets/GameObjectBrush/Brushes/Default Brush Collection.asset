@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Default Brush Collection
   m_EditorClassIdentifier: 
   _brushes:
-  - brushObject: {fileID: 77317318418292879, guid: a8ff1706af571474fbe0a32449adb7a1,
+  - brushObject: {fileID: 6500354347023876789, guid: 1c5b5d98ffc6cc343a9e9de45cec4ee7,
       type: 3}
     usePrefabs: 1
     allowIntercollision: 0
@@ -22,12 +22,12 @@ MonoBehaviour:
     randomizeYRotation: 1
     randomizeZRotation: 0
     parentContainer: {fileID: 0}
-    density: 1
-    brushSize: 5
-    minScale: 12.325676
-    maxScale: 12.325676
+    density: 5
+    brushSize: 1.18
+    minScale: 0.25
+    maxScale: 0.3
     offsetFromPivot: {x: 0, y: 0, z: 0}
-    rotOffsetFromPivot: {x: 0, y: 0, z: 0}
+    rotOffsetFromPivot: {x: -90, y: 90, z: 0}
     minSlope: 0
     maxSlope: 360
     layerFilter:
@@ -36,7 +36,7 @@ MonoBehaviour:
     isTagFilteringEnabled: 0
     tagFilter: 
   primarySelectedBrush:
-    brushObject: {fileID: 77317318418292879, guid: a8ff1706af571474fbe0a32449adb7a1,
+    brushObject: {fileID: 6500354347023876789, guid: 1c5b5d98ffc6cc343a9e9de45cec4ee7,
       type: 3}
     usePrefabs: 1
     allowIntercollision: 0
@@ -45,12 +45,12 @@ MonoBehaviour:
     randomizeYRotation: 1
     randomizeZRotation: 0
     parentContainer: {fileID: 0}
-    density: 1
-    brushSize: 5
-    minScale: 12.325676
-    maxScale: 12.325676
+    density: 5
+    brushSize: 1.18
+    minScale: 0.25
+    maxScale: 0.3
     offsetFromPivot: {x: 0, y: 0, z: 0}
-    rotOffsetFromPivot: {x: 0, y: 0, z: 0}
+    rotOffsetFromPivot: {x: -90, y: 90, z: 0}
     minSlope: 0
     maxSlope: 360
     layerFilter:
@@ -59,7 +59,7 @@ MonoBehaviour:
     isTagFilteringEnabled: 0
     tagFilter: 
   selectedBrushes:
-  - brushObject: {fileID: 77317318418292879, guid: a8ff1706af571474fbe0a32449adb7a1,
+  - brushObject: {fileID: 6500354347023876789, guid: 1c5b5d98ffc6cc343a9e9de45cec4ee7,
       type: 3}
     usePrefabs: 1
     allowIntercollision: 0
@@ -68,12 +68,12 @@ MonoBehaviour:
     randomizeYRotation: 1
     randomizeZRotation: 0
     parentContainer: {fileID: 0}
-    density: 1
-    brushSize: 5
-    minScale: 12.325676
-    maxScale: 12.325676
+    density: 5
+    brushSize: 1.18
+    minScale: 0.25
+    maxScale: 0.3
     offsetFromPivot: {x: 0, y: 0, z: 0}
-    rotOffsetFromPivot: {x: 0, y: 0, z: 0}
+    rotOffsetFromPivot: {x: -90, y: 90, z: 0}
     minSlope: 0
     maxSlope: 360
     layerFilter:
