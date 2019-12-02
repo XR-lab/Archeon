@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e90911e410742a1498a167540c7865bf, type: 3}
   m_Name: fishPose
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   leftHand:
     inputSource: 1
     thumbFingerMovementType: 0
@@ -21,7 +21,7 @@ MonoBehaviour:
     pinkyFingerMovementType: 2
     ignoreRootPoseData: 1
     ignoreWristPoseData: 1
-    position: {x: 0.6553186, y: 0.11477937, z: -0.196639}
+    position: {x: 0.6547938, y: 0.11656551, z: -0.19831306}
     rotation: {x: 0.24996586, y: 0.71357125, z: 0.3092335, w: 0.5768084}
     bonePositions:
     - {x: -0, y: 0, z: 0}
@@ -96,7 +96,7 @@ MonoBehaviour:
     pinkyFingerMovementType: 2
     ignoreRootPoseData: 1
     ignoreWristPoseData: 1
-    position: {x: -0.6553173, y: 0.11478198, z: -0.19664115}
+    position: {x: -0.6547938, y: 0.11656551, z: -0.19831306}
     rotation: {x: -0.24996586, y: 0.71357125, z: 0.3092335, w: -0.5768084}
     bonePositions:
     - {x: -0, y: 0, z: 0}
