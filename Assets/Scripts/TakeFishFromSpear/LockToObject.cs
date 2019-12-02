@@ -35,7 +35,10 @@ public class LockToObject : MonoBehaviour
     }
 
     public void OnPickUp() {
-        _trans = null;
+        if (_trans != null) {
+            _trans.GetComponent<SpearPointCollision>().HasFishOnTip = false;
+            _trans = null;
+        }
         _held = true;
         GetComponent<Collider>().isTrigger = true;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
