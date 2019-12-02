@@ -5,7 +5,6 @@ using Valve.VR.InteractionSystem;
 
 public class Pek : MonoBehaviour
 {
-    private Interactable _interact;
     [SerializeField]
     private List<GameObject> _attachedGO = new List<GameObject>();
     private List<FixedJoint> _joints = new List<FixedJoint>();
@@ -17,11 +16,6 @@ public class Pek : MonoBehaviour
     [SerializeField]
     private float _heatingTime = 0;
     private bool _sticked = false;
-
-    private void Start()
-    {
-        _interact = GetComponent<Interactable>();
-    }
 
     private void Update()
     {
@@ -48,19 +42,10 @@ public class Pek : MonoBehaviour
             _hard = false;
             _sticked = false;
             UnStick();
-
-            if (_attachedGO.Count != 0)
-            {
-                if(!_attachedGO[0].gameObject.CompareTag("Bowl"))
-                {
-                    float p = (_heatingTime - 30) / 50;
-                    this.gameObject.GetComponent<Rigidbody>().velocity = this.gameObject.GetComponent<Rigidbody>().velocity * p;
-                }
-            }
         }
         else if (_heatingTime > 70)
         {
-            _hard = false;
+            Destroy(this.gameObject);
         }
     }
 
@@ -71,15 +56,13 @@ public class Pek : MonoBehaviour
             _heating = true;
         }
 
-        print(_other.name);
-
         if (_other.gameObject.layer != 10)
             return;
 
         if (!_hard)
         {
             _attachedGO.Add(_other.gameObject.transform.parent.gameObject);
-            if(_other.gameObject.CompareTag("Craftable") || _other.gameObject.CompareTag("Handles")) 
+            if(_other.gameObject.CompareTag("Craftable")) 
             {
                 Physics.IgnoreCollision(this.gameObject.transform.GetChild(0).gameObject.GetComponent<Collider>(), _other.gameObject.GetComponent<Collider>());
             }
@@ -104,7 +87,7 @@ public class Pek : MonoBehaviour
     {
         if (_heatingTime < 100)
         {
-            _heatingTime += .2f;
+            //_heatingTime += .15f;
         }
     }
 
@@ -112,7 +95,7 @@ public class Pek : MonoBehaviour
     {
         if (_heatingTime > 0)
         {
-            _heatingTime -= .2f;
+            //_heatingTime -= .2f;
         }
     }
 
@@ -120,34 +103,28 @@ public class Pek : MonoBehaviour
     {
         foreach(GameObject _GO in _attachedGO)
         {
-            FixedJoint _joint = this.gameObject.AddComponent<FixedJoint>();
-            _joint.connectedBody = _GO.GetComponent<Rigidbody>();
-            _joints.Add(_joint);
+            //FixedJoint _joint = this.gameObject.AddComponent<FixedJoint>();
+            //_joint.connectedBody = _GO.GetComponent<Rigidbody>();
+            //_joints.Add(_joint);
+            _GO.GetComponent<Rigidbody>().isKinematic = true;
             _GO.transform.SetParent(this.transform);
-/*
-            if(_GO.CompareTag("handles"))
-            {
-                GetComponent<Interactable>().enabled = false;
-                if (_GO.CompareTag("handles"))
-                    return;
-                _GO.GetComponent<Interactable>().enabled = false;
-            }*/
         }
     }
 
     private void UnStick()
     {
-        foreach (FixedJoint _joint in _joints)
+        /*foreach (FixedJoint _joint in _joints)
         {
             Destroy(_joint);
-        }
+        }*/
         foreach (GameObject _GO in _attachedGO)
         {
             _GO.transform.SetParent(null);
-            if (_GO.gameObject.GetComponent<Interactable>().enabled == false)
+            _GO.GetComponent<Rigidbody>().isKinematic = false;
+            /*if (_GO.gameObject.GetComponent<Interactable>().enabled == false)
             {
                 _GO.gameObject.GetComponent<Interactable>().enabled = true;
-            }
+            }*/
         }
     }
 }

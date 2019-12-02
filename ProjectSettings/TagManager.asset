@@ -10,6 +10,7 @@ TagManager:
   - Bowl
   - Stone
   - Flint
+  - PekPoint
   layers:
   - Default
   - TransparentFX
