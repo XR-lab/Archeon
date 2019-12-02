@@ -16,21 +16,38 @@ public class LockToObject : MonoBehaviour
     private Vector3 _positionOffset;
     private Quaternion _rotationOffset;
 
+    private bool _registered;
+    private bool _held;
+
     private void Start() {
         _instance = this;
         _throwable = GetComponent<Throwable>();
-        _throwable.onPickUp.AddListener(DisableSelf);
+        if (!_registered) {
+            _throwable.onPickUp.AddListener(OnPickUp);
+            _registered = true;
+            _throwable.onDetachFromHand.AddListener(OnDrop);
+        }
     }
 
-    public void DisableSelf() {
+    public void OnDrop() {
+        GetComponent<Collider>().isTrigger = false;
+        _held = false;
+    }
+
+    public void OnPickUp() {
+        _trans = null;
+        _held = true;
+        GetComponent<Collider>().isTrigger = true;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
-        Physics.IgnoreCollision(GetComponent<Collider>(), /*getting the collider of the spear itself*/_trans.parent.parent.parent.GetComponent<Collider>(), false);
-        _throwable.onPickUp.RemoveListener(DisableSelf);
-        _instance.enabled = false;
+        if (_trans != null) {
+            Physics.IgnoreCollision(GetComponent<Collider>(), /*getting the collider of the spear itself*/_trans.parent.parent.parent.GetComponent<Collider>(), false);
+        }
     }
 
-    void Update()
-    {
+    void Update() {
+        if (_held || _trans == null) {
+            return;
+        }
         Vector3 targetPos = _trans.position - _positionOffset;
         Quaternion targetRot = _trans.rotation * _rotationOffset;
 

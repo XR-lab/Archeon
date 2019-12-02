@@ -1,32 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
+using Valve.VR.InteractionSystem;
 
 public class SpearPointCollision : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private LayerMask _terrainLayer;
     [SerializeField] private LayerMask _huntingLayer;
+    [SerializeField] private Transform _fishHolder;
+    //[SerializeField] private SteamVR_Skeleton_Pose _fishPose;
     private bool _grabbed;
     public bool Grabbed { get { return _grabbed; } set { _grabbed = value; } }
     private bool _hasFishOnTip;
 
     void OnTriggerEnter(Collider other) {
-        if (Mathf.Pow(2, other.gameObject.layer) == _terrainLayer.value && !_grabbed) {
+        // Checks if layer mask contains layer
+        if (_terrainLayer == (_terrainLayer | ( 1 << other.gameObject.layer)) && !_grabbed) {
             _rb.constraints = RigidbodyConstraints.FreezeAll;
         }
-        if (Mathf.Pow(2, other.gameObject.layer) == _huntingLayer.value && !_hasFishOnTip) {
+        if (_huntingLayer == (_huntingLayer | (1 << other.gameObject.layer)) && !_hasFishOnTip) {
+            _hasFishOnTip = true;
             CatchFish(other.gameObject.transform);
         }
     }
 
-    public void OnPickUp() {
-        _rb.constraints = RigidbodyConstraints.None;
-    }
-
     void CatchFish(Transform fish) {
-        fish.position = transform.position;
-        fish.rotation = transform.rotation;
-        fish.SetParent(transform);
+        Debug.LogError("Stabbing the fish: " + fish.name);
+        fish.GetComponent<Animator>().enabled = false;
+        fish.rotation = _fishHolder.rotation;
+        fish.position = _fishHolder.position;
+        Rigidbody rb = fish.GetComponent<Rigidbody>();
+        rb.isKinematic = false;
+        rb.useGravity = true;
+        LockToObject _lock = fish.gameObject.GetComponent<LockToObject>();
+        if (_lock == null) {
+            _lock = fish.gameObject.AddComponent<LockToObject>();
+        }
+        _lock.enabled = true;
+        _lock.SetFakeParent(transform);
     }
 }
