@@ -14,7 +14,7 @@ public class Pek : MonoBehaviour
     [SerializeField]
     private bool _hard = true;
     [SerializeField]
-    private float _heatingTime = 0;
+    private float _heatingTime = 69;
     private bool _sticked = false;
 
     private void Update()

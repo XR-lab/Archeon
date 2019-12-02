@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 public class Flint : MonoBehaviour
 {
@@ -22,12 +23,13 @@ public class Flint : MonoBehaviour
     {
         if (!_col.gameObject.CompareTag("Stone"))
             return;
-        //print(_RG.velocity.magnitude);
         if (_RG.velocity.magnitude > _breakPower || _col.gameObject.GetComponent<Rigidbody>().velocity.magnitude > _breakPower)
         {
-            print(_RG.velocity.magnitude);
             //Instantiate(_spark, (this.transform.position + _col.transform.position) / 2, Quaternion.identity);
-            Instantiate(_flintShard[Random.Range(0, _flintShard.Count)], (this.transform.position + _col.transform.position)/2, Quaternion.identity);
+            GameObject _splinter = _flintShard[Random.Range(0, _flintShard.Count)];
+            _splinter.transform.SetParent(null);
+            _splinter.GetComponent<Rigidbody>().isKinematic = false;
+            _splinter.GetComponent<Interactable>().enabled = true;
         }
     }
 
