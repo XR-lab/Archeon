@@ -7,14 +7,16 @@ public class WinCondition : MonoBehaviour
     private int _goal = 3;
     private int _currentAmount;
 
+    [SerializeField] private LayerMask _acceptedLayers;
+
     void Start()
     {
         _currentAmount = 0; 
     }
 
-    private void OnCollisionEnter(Collision col)
+    private void OnTriggerEnter(Collider col)
     {
-        if (col.transform.gameObject.layer == 10)
+        if (_acceptedLayers == (_acceptedLayers | (1 << col.gameObject.layer)))
         {
             Debug.Log("Stored Fish");
 
@@ -27,10 +29,10 @@ public class WinCondition : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision col)
+    private void OnTriggerExit(Collider col)
     {
 
-        if (col.transform.gameObject.layer == 10)
+        if (_acceptedLayers == (_acceptedLayers | (1 << col.gameObject.layer)))
         {
             Debug.Log("Released fish");
             _currentAmount -= 1;

@@ -4,114 +4,81 @@ using UnityEngine;
 
 public class SwimBehaviour : StateMachineBehaviour
 {
-    //private float _mass = 100;
-    private float _maxVelocity = 3;
-    //private float _maxForce = 15;
-    private float _angleBetween = 0.0f;
-    private Vector3 _angle;
+    private float _mass = 100;
+    private float _maxVelocity = 2;
+    private float _maxForce = 15;
 
+    private Vector3 _velocity;
+    private GameObject _target;
+    private Transform[] _targets;
+    private Transform _destination;
+    private Transform _oldDest;
+    private int _destNum = 0;
 
-
-    //private Vector3 _velocity;
-    private Vector3 _destination;
-    private Vector3 _target;
-
-    private GameObject _this;
-    private FOV _fov;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        _this = animator.transform.gameObject;
-        _fov = _this.GetComponent<FOV>();
-
-        //_velocity = Vector3.zero;
+        _target = GameObject.Find("Targets");
+        _targets = _target.GetComponentsInChildren<Transform>();
+        _velocity = Vector3.zero;
+        GetDestination();
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        Transform[] _visibleTargets = _this.GetComponent<FOV>().visibleTargets.ToArray();
-        _target = animator.transform.forward * _maxVelocity;
+        Vector3 _desiredVelocity = _destination.transform.position - animator.transform.position;
+        _desiredVelocity = _desiredVelocity.normalized * _maxVelocity;
 
-        Vector3 _targetDir = _target - animator.transform.position;
-        _angleBetween = Vector3.Angle(animator.transform.forward, _targetDir);
+        Vector3 _steering = _desiredVelocity - _velocity;
+        _steering = Vector3.ClampMagnitude(_steering, _maxForce);
+        _steering /= _mass;
 
-        animator.transform.position += _target * Time.deltaTime;
+        _velocity = Vector3.ClampMagnitude(_velocity + _steering, _maxVelocity);
+        animator.transform.position += _velocity * Time.deltaTime;
+        animator.transform.forward = _velocity.normalized;
 
-        if (_fov.visibleTargets.Count > 0)
+        Debug.DrawRay(animator.transform.position, _velocity.normalized * 2, Color.green);
+        Debug.DrawRay(animator.transform.position, _desiredVelocity.normalized * 2, Color.magenta);
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            var currentDistance = -1f;
-            foreach (Transform _trans in _fov.visibleTargets)
-            {
-                float dist = Vector3.Distance(animator.transform.position, _trans.position);
-                if(currentDistance == -1f || dist < currentDistance)
-                {
-                    currentDistance = dist;
-                    _destination = _trans.position;
-                }
-            }
-
-            Debug.Log(_fov.visibleTargets.Count);
-            Debug.Log("Destination: " + _destination);
-            //float _angleDegrees = Vector3.Angle(animator.transform.position, _visibleTargets[0].transform.position);
-            float _angleDegrees = Vector3.Angle(animator.transform.position, _destination);
-            _angle = new Vector3(0, _angleDegrees, 0);
-
-            Debug.Log("_angleDegrees: " + _angleDegrees);
-            Debug.Log("_angle: " + _angle);
-
-            //animator.transform.rotation = Quaternion.Lerp(Quaternion.identity, Quaternion.Euler(0, -_angle, 0), 1f);
-            animator.transform.rotation = Quaternion.RotateTowards(animator.transform.rotation, Quaternion.Euler(0f, _this.gameObject.transform.rotation.y - _angleDegrees, 0f), 1f);
-            Debug.Log("animator.transform.rotation: " + animator.transform.rotation);
+            animator.SetBool("IsPanicing", true);
         }
 
-        //Vector3 _desiredVelocity = _targetDir - animator.transform.position;
-        //_desiredVelocity = _desiredVelocity.normalized * _maxVelocity;
+        //animator.transform.position = Vector3.MoveTowards(animator.transform.position, _destination.position, _maxVelocity * Time.deltaTime);
 
-        //Vector3 _steering = _desiredVelocity - _velocity;
-        //_steering = Vector3.ClampMagnitude(_steering, _maxForce);
-        //_steering /= _mass;
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            animator.SetBool("IsPanicing", true);
+        }
 
-        //_velocity = Vector3.ClampMagnitude(_velocity + _steering, _maxVelocity);
-        //animator.transform.position += _velocity * Time.deltaTime;
-        //animator.transform.forward = _velocity.normalized;
+        if (Vector3.Distance(animator.transform.position, _destination.transform.position) <= 0.5)
+        {
+            _oldDest = _destination;
+            GetDestination();
+        }
 
-        //Debug.DrawRay(animator.transform.position, _desiredVelocity.normalized * 5, Color.magenta);
+        if (_destination == _oldDest)
+        {
+            GetDestination();
+        }
 
-        //else
-        //{
-        //    _angle = animator.transform.rotation.y;
-        //}
-
-        //animator.transform.rotation = Quaternion.RotateTowards(animator.transform.rotation, Quaternion.LookRotation(animator.transform.position - _destination), 5);
-        //animator.transform.position = animator.transform.forward * 5 * Time.deltaTime;
-
-
-        //Vector3 _desiredVelocity = _destination - animator.transform.position;
-        //_desiredVelocity = _desiredVelocity.normalized * _maxVelocity;
-
-        //Vector3 _steering = _desiredVelocity - _velocity;
-        //_steering = Vector3.ClampMagnitude(_steering, _maxForce);
-        //_steering /= _mass;
-
-        //_velocity = Vector3.ClampMagnitude(_velocity + _steering, _maxVelocity);
-        //animator.transform.position += _velocity * Time.deltaTime;
-        //animator.transform.forward = _velocity.normalized;
-
-        //Debug.DrawRay(animator.transform.position, _velocity.normalized * 5, Color.green);
-        //Debug.DrawRay(animator.transform.position, animator.transform.forward * 10, Color.yellow);
-
-        Debug.DrawRay(animator.transform.position, _destination, Color.yellow);
-
-
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    animator.SetBool("IsPanicing", true);
-        //}
+        //Debug.DrawLine(animator.transform.position, _destination.transform.position, Color.green);
 
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
+
+    }
+
+    private void GetDestination()
+    {
+        _destNum = Mathf.Clamp(Mathf.RoundToInt(Random.Range(0, _targets.Length)), 0, _targets.Length);
+        _destination = _targets[_destNum];
+
+        Debug.Log("DestNum in array = " + _destNum);
+        Debug.Log("Destination in array = " + _destination);
 
     }
 }
