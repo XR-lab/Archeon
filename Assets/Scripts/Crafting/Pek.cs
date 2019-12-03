@@ -37,13 +37,13 @@ public class Pek : MonoBehaviour
                 _sticked = true;
             } 
         }
-        else if (_heatingTime > 30 && _heatingTime < 70)
+        else if (_heatingTime > 30 && _heatingTime < 100)
         {
             _hard = false;
             _sticked = false;
             UnStick();
         }
-        else if (_heatingTime > 70)
+        else if (_heatingTime > 100)
         {
             Destroy(this.gameObject);
         }
@@ -85,9 +85,9 @@ public class Pek : MonoBehaviour
 
     private void Heating()
     {
-        if (_heatingTime < 100)
+        if (_heatingTime < 120)
         {
-            //_heatingTime += .15f;
+            _heatingTime += .15f;
         }
     }
 
@@ -95,7 +95,7 @@ public class Pek : MonoBehaviour
     {
         if (_heatingTime > 0)
         {
-            //_heatingTime -= .2f;
+            _heatingTime -= .15f;
         }
     }
 

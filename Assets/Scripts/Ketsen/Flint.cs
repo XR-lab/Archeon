@@ -11,6 +11,7 @@ public class Flint : MonoBehaviour
     private GameObject _spark;
     [SerializeField]
     public List<GameObject> _flintShard = new List<GameObject>();
+    public GameObject _interactable;
 
     private Rigidbody _RG;
 
@@ -27,14 +28,9 @@ public class Flint : MonoBehaviour
         {
             //Instantiate(_spark, (this.transform.position + _col.transform.position) / 2, Quaternion.identity);
             GameObject _splinter = _flintShard[Random.Range(0, _flintShard.Count)];
-            _splinter.transform.SetParent(null);
-            _splinter.GetComponent<Rigidbody>().isKinematic = false;
-            _splinter.GetComponent<Interactable>().enabled = true;
+            _flintShard.Remove(_splinter);
+            GameObject _g = Instantiate(_interactable, _splinter.transform.position, Quaternion.identity);
+            _splinter.transform.SetParent(_g.transform);
         }
-    }
-
-    private void UpdateFlintModel()
-    {
-
     }
 }
