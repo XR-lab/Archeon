@@ -21,7 +21,7 @@ public class LockToObject : MonoBehaviour
 
     private void Start() {
         _instance = this;
-        _throwable = GetComponent<Throwable>();
+        _throwable = GetComponentInChildren<Throwable>();
         if (!_registered) {
             _throwable.onPickUp.AddListener(OnPickUp);
             _registered = true;
@@ -30,7 +30,6 @@ public class LockToObject : MonoBehaviour
     }
 
     public void OnDrop() {
-        GetComponent<Collider>().isTrigger = false;
         _held = false;
     }
 
@@ -40,7 +39,6 @@ public class LockToObject : MonoBehaviour
             _trans = null;
         }
         _held = true;
-        GetComponent<Collider>().isTrigger = true;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         if (_trans != null) {
             Physics.IgnoreCollision(GetComponent<Collider>(), /*getting the collider of the spear itself*/_trans.parent.parent.parent.GetComponent<Collider>(), false);
@@ -59,6 +57,10 @@ public class LockToObject : MonoBehaviour
     }
 
     public void SetFakeParent(Transform parent) {
+        GetComponent<RagdollHandler>().RagdollActiveTo(true);
+        Animator anim = GetComponent<Animator>();
+        anim.SetBool("IsDead", true);
+        anim.enabled = false;
         _positionOffset = parent.position - transform.position;
         _rotationOffset = Quaternion.Inverse(parent.rotation * transform.rotation);
         _trans = parent;
