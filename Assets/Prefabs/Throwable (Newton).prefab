@@ -115,11 +115,7 @@ MonoBehaviour:
   snapAttachEaseInCompleted: 0
   skeletonPoser: {fileID: 0}
   handFollowTransform: 1
-<<<<<<< HEAD
-  highlightOnHover: 1
-=======
   highlightOnHover: 0
->>>>>>> 12aac5fe86dda99f3f1df142130808c555129834
   hideHighlight: []
 --- !u!114 &6900829512253785724
 MonoBehaviour:
