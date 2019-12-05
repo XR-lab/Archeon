@@ -19,9 +19,12 @@ public class LockToObject : MonoBehaviour
     private bool _registered;
     private bool _held;
 
+    private Collider _col;
+
     private void Start() {
         _instance = this;
         _throwable = GetComponent<Throwable>();
+        _col = GetComponent<Collider>();
         if (!_registered) {
             _throwable.onPickUp.AddListener(OnPickUp);
             _registered = true;
@@ -30,7 +33,7 @@ public class LockToObject : MonoBehaviour
     }
 
     public void OnDrop() {
-        GetComponent<Collider>().isTrigger = false;
+        _col.isTrigger = false;
         _held = false;
     }
 
@@ -40,10 +43,10 @@ public class LockToObject : MonoBehaviour
             _trans = null;
         }
         _held = true;
-        GetComponent<Collider>().isTrigger = true;
+        _col.isTrigger = true;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         if (_trans != null) {
-            Physics.IgnoreCollision(GetComponent<Collider>(), /*getting the collider of the spear itself*/_trans.parent.parent.parent.GetComponent<Collider>(), false);
+            Physics.IgnoreCollision(_col, /*getting the collider of the spear itself*/_trans.parent.parent.parent.GetComponent<Collider>(), false);
         }
     }
 
@@ -62,7 +65,7 @@ public class LockToObject : MonoBehaviour
         _positionOffset = parent.position - transform.position;
         _rotationOffset = Quaternion.Inverse(parent.rotation * transform.rotation);
         _trans = parent;
-        Physics.IgnoreCollision(GetComponent<Collider>(), _trans.parent.parent.parent.GetComponent<Collider>());
+        Physics.IgnoreCollision(_col, _trans.parent.parent.parent.GetComponent<Collider>());
     }
 
     public Vector3 RotatePointAroundPivot(Vector3 point, Vector3 pivot, Quaternion rotation) {
