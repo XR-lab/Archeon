@@ -62,6 +62,10 @@ public class LockToObject : MonoBehaviour
     }
 
     public void SetFakeParent(Transform parent) {
+        GetComponent<RagdollHandler>().RagdollActiveTo(true);
+        Animator anim = GetComponent<Animator>();
+        anim.SetBool("IsDead", true);
+        anim.enabled = false;
         _positionOffset = parent.position - transform.position;
         _rotationOffset = Quaternion.Inverse(parent.rotation * transform.rotation);
         _trans = parent;
