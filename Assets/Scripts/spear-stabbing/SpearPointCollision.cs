@@ -19,7 +19,7 @@ public class SpearPointCollision : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         // Checks if layer mask contains layer
         if (_terrainLayer == (_terrainLayer | ( 1 << other.gameObject.layer)) && !_grabbed) {
-            _rb.constraints = RigidbodyConstraints.FreezeAll;
+            _rb.isKinematic = true;
         }
         if (_huntingLayer == (_huntingLayer | (1 << other.gameObject.layer)) && !_hasFishOnTip) {
             _hasFishOnTip = true;
