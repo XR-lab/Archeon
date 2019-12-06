@@ -62,7 +62,7 @@ public class LockToObject : MonoBehaviour
     }
 
     public void SetFakeParent(Transform parent) {
-        GetComponent<RagdollHandler>().RagdollActiveTo(true);
+        //GetComponent<RagdollHandler>().RagdollActiveTo(true);
         Animator anim = GetComponent<Animator>();
         anim.SetBool("IsDead", true);
         anim.enabled = false;
