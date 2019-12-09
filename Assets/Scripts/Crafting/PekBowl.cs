@@ -10,6 +10,7 @@ public class PekBowl : MonoBehaviour
     private bool _hard = true;
     [SerializeField]
     private float _heatingTime = 0;
+    [SerializeField]
     private GameObject _pek;
 
     private void Update()
