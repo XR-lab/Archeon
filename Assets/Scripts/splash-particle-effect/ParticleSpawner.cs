@@ -17,7 +17,6 @@ public class ParticleSpawner : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if (_detectedLayers == (_detectedLayers | (1 << other.gameObject.layer))) {
-            Debug.LogError(other.name);
             Vector3 otherPosition = other.ClosestPoint(other.transform.position);
             SpawnSplashParticles(new Vector3(otherPosition.x, transform.position.y, otherPosition.z));
         }
