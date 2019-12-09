@@ -33,14 +33,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Water_Texture2D:
-        m_Texture: {fileID: 8400000, guid: 54f0f9f1581e5344d82da84f68f3ebfa, type: 2}
+        m_Texture: {fileID: 8400000, guid: 558ec63b72f184795a11da2dbb23d2d5, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_362B7A6F: 0.1
     - Vector1_594D4C01: 0.02
     - Vector1_881B2290: 0.8
-    - Vector1_B0B5ACB6: 60
+    - Vector1_B0B5ACB6: 10
     - Vector1_DF725B93: 0.8
     - Vector1_F10F650D: 0.8
     - _AlphaCutoff: 0.5

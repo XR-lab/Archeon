@@ -13,42 +13,60 @@ public class Blit : MonoBehaviour
     [SerializeField]
     RenderTexture frameBuffer;
 
-    [SerializeField]
-    private Material blendMaterial;
+    [SerializeField] private Texture _startCanvas;
 
-    [SerializeField] private Texture startCanvas;
-    
+    private List<Ripple> _ripples = new List<Ripple>();
+
+
+
     void Start()
     {
         if (!source || !destination)
         {
             Debug.LogError("A texture or a render texture are missing, assign them.");
         }
+        frameBuffer.Release();
+        destination.Release();
         //InvokeRepeating("GraphicsCopyTexture", 1.0f, 1.0f);
     }
 
     void Update()
     {
-        
-        //Graphics.CopyTexture(startCanvas, destination);
-        //GraphicsBlit();
+        Graphics.CopyTexture(_startCanvas, frameBuffer);
+
         GraphicsCopyTexture();
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            StartCoroutine(GenerateRipple(new Vector2(Random.Range(0,2048), Random.Range(0, 2048)),1,1,0));
+        }
+    }
+
+
+    //Instantiates a ripple that will be drawn in the heightmap
+    public IEnumerator GenerateRipple(Vector2 position, float rippleStrength, int waves, float timeOffset)
+    {
+        yield return new WaitForSeconds(timeOffset);
+
+        Ripple ripple = new Ripple((int)position.x, (int)position.y, rippleStrength, 0.01f, waves, Time.time);
+
+        _ripples.Add(ripple);
     }
 
     void GraphicsCopyTexture()
     {
-        for (var i = 0; i < 10; i++)
-        {
-//            frameBuffer.Release();
-            Graphics.CopyTexture(source, 0, 0, 0, 0, 128, 128, frameBuffer, 0, 0, Random.Range(0, 1900), Random.Range(0, 1900));
-            Graphics.Blit(frameBuffer, destination);
-        }
-    }
+        foreach (Ripple ripple in _ripples)
+        {            
+            Graphics.CopyTexture(source, 0, 0, 0, 0, Mathf.Min(frameBuffer.width-ripple.x, 128), 
+                Mathf.Min(frameBuffer.height - ripple.y, 128), frameBuffer, 0, 0, ripple.x,ripple.y);
 
-    void GraphicsBlit()
-    {
-        var scale = new Vector2(1, 1);
-        var offset = new Vector2(0, 0);
-        Graphics.Blit(source, destination, scale, offset);
+            Vector2 scale = new Vector2(1-(Time.time - ripple.age), 1-(Time.time - ripple.age));
+            Vector2 offset = new Vector2((Time.time - ripple.age), (Time.time - ripple.age));
+
+            Debug.Log(scale);
+
+            Graphics.Blit(frameBuffer, destination,scale,offset);
+        }
+
     }
 }

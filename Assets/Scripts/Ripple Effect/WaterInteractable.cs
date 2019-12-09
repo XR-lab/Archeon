@@ -44,11 +44,7 @@ public class WaterInteractable : MonoBehaviour
             int layer = 1 << _waterLayer;
 
             RippleGenerator generator = other.gameObject.GetComponent<RippleGenerator>();
-            Vector2 pos = new Vector2(
-                other.contacts[other.contactCount - 1].point.x,
-                other.contacts[other.contactCount - 1].point.z
-                );
-
+            Vector2 pos = new Vector2();
             Ray ray = new Ray(other.contacts[other.contactCount - 1].point + Vector3.up, Vector3.down);
             RaycastHit hit;
             origin = ray.origin;
@@ -66,10 +62,10 @@ public class WaterInteractable : MonoBehaviour
                 }
             }
 
-            StartCoroutine(generator.GenerateRipple(new Vector2(
-                pos.x, 
-                pos.y), 
-                _rippleVolume, _rippleRadius, _timeDelay));
+            //StartCoroutine(generator.GenerateRipple(new Vector2(
+            //    pos.x, 
+            //    pos.y), 
+            //    _rippleVolume, _rippleRadius, _timeDelay));
         }
     }
 }
