@@ -29,12 +29,9 @@ public class SpearPointCollision : MonoBehaviour
 
     void CatchFish(Transform fish) {
         Debug.LogError("Stabbing the fish: " + fish.name);
-        fish.GetComponent<Animator>().enabled = false;
+        fish.GetComponent<Animator>().SetBool("IsDead", true);
         fish.rotation = _fishHolder.rotation;
         fish.position = _fishHolder.position;
-        Rigidbody rb = fish.GetComponent<Rigidbody>();
-        rb.isKinematic = false;
-        rb.useGravity = true;
         LockToObject _lock = fish.gameObject.GetComponent<LockToObject>();
         if (_lock == null) {
             _lock = fish.gameObject.AddComponent<LockToObject>();
