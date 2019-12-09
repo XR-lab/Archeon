@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 1592364662728987813}
   - component: {fileID: -3777316454620079190}
   m_Layer: 0
-  m_Name: Zeeforel_PrefabV2
+  m_Name: Zeeforel_Prefab_V2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -343,11 +343,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0eb6744a1a124bb0866c78ddb785da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 30
+  viewRadius: 1
   viewAngle: 240
   targetMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1536
   obstacleMask:
     serializedVersion: 2
     m_Bits: 0

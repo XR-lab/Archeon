@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class SwimBehaviour : StateMachineBehaviour
 {
-    private float _maxVelocity = 5;
-    private float _angleBetween = 0.0f;
-
-    private Vector3 _angle;
+    private float _maxVelocity = 0.5f;
+    private float _startY;
     private Vector3 _obstacle;
-    private Vector3 _target;
-
     private GameObject _this;
     private FOV _fov;
 
@@ -18,6 +14,8 @@ public class SwimBehaviour : StateMachineBehaviour
     {
         _this = animator.transform.gameObject;
         _fov = _this.GetComponent<FOV>();
+
+        _startY = _this.transform.position.y;
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
@@ -37,18 +35,27 @@ public class SwimBehaviour : StateMachineBehaviour
                     currentDistance = dist;
                     _obstacle = _trans.position;
                 }
+
+                if (_trans.root.name == "Spear")
+                {
+                    animator.SetBool("IsPanicing", true);
+                }
             }
 
-        Vector3 _newLookRotation = new Vector3(animator.transform.position.x - _obstacle.x,
-                                               animator.transform.position.y,
-                                               animator.transform.position.z - _obstacle.z);
-            animator.transform.rotation = Quaternion.RotateTowards(animator.transform.rotation, Quaternion.LookRotation(_newLookRotation), 150 * Time.deltaTime);
+        Vector3 _newLookRotation = new Vector3(_this.transform.position.x - _obstacle.x,
+                                               _this.transform.position.y,
+                                               _this.transform.position.z - _obstacle.z);
+            _this.transform.rotation = Quaternion.RotateTowards(_this.transform.rotation, Quaternion.LookRotation(_newLookRotation), 150 * Time.deltaTime);
         }
 
-        Debug.DrawRay(animator.transform.position, new Vector3(animator.transform.position.x - _obstacle.x,
-                                                               animator.transform.position.y,
-                                                               animator.transform.position.z - _obstacle.z), 
+        Debug.DrawRay(_this.transform.position, new Vector3(_this.transform.position.x - _obstacle.x,
+                                                               _this.transform.position.y,
+                                                               _this.transform.position.z - _obstacle.z), 
                                                                Color.yellow);
+        
+        _this.transform.position = new Vector3(_this.transform.position.x,
+                                               _startY,
+                                               _this.transform.position.z);
     }
 
 
