@@ -8,8 +8,8 @@
 <<<<<<< HEAD
       "action_manifest_path": "D:\\Development\\Archeon\\actions.json",
 =======
-      "action_manifest_path": "C:\\Users\\Practoraat HNK\\Desktop\\Archeon\\actions.json",
->>>>>>> 12aac5fe86dda99f3f1df142130808c555129834
+      "action_manifest_path": "C:\\Users\\Practoraat HNK\\Desktop\\Archeon\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+>>>>>>> 6a920e339fe925ff1b4ca9f2b3eed41f4dd05a5a
       "strings": {
         "en_us": {
           "name": "Archeon [Testing]"
