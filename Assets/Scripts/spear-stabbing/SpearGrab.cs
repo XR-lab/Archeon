@@ -13,7 +13,9 @@ public class SpearGrab : MonoBehaviour {
 
     public void OnPickUp() {
         _point.Grabbed = true;
-        _rb.constraints = RigidbodyConstraints.None;
+        _rb.isKinematic = false;
+        
+        GetComponent<AudioSource>().Play();
     }
 
     public void OnDrop() {

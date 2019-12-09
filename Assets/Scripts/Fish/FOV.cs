@@ -38,23 +38,20 @@ public class FOV : MonoBehaviour {
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
         foreach (var _tar in targetsInViewRadius)
         {
-            for (int i = 0; i < targetsInViewRadius.Length; i++)
+            if (_tar.transform != this.transform)
             {
-                if (_tar.transform.root != transform)
+                Transform target = _tar.transform;
+                Vector3 dirToTarget = (target.position - transform.position).normalized;
+                if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
                 {
-                    Transform target = targetsInViewRadius[i].transform;
-                    Vector3 dirToTarget = (target.position - transform.position).normalized;
-                    if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
-                    {
-                        float dstToTarget = Vector3.Distance(transform.position, target.position);
+                    float dstToTarget = Vector3.Distance(transform.position, target.position);
 
-                        if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
-                        {
-                            visibleTargets.Add(target);
-                        }
+                    if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
+                    {
+                        visibleTargets.Add(target);
                     }
                 }
             }
         }
-	}
+    }
 }

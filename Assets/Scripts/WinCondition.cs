@@ -1,10 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WinCondition : MonoBehaviour
 {
+    [SerializeField]
     private int _goal = 3;
+
+    [SerializeField]
+    private UnityEvent _onScoreAdded;
+
+    [SerializeField]
+    private UnityEvent _onGoalAccomplished;
+
     private int _currentAmount;
 
     [SerializeField] private LayerMask _acceptedLayers;
@@ -18,13 +27,12 @@ public class WinCondition : MonoBehaviour
     {
         if (_acceptedLayers == (_acceptedLayers | (1 << col.gameObject.layer)))
         {
-            Debug.Log("Stored Fish");
-
+            _onScoreAdded.Invoke();
             _currentAmount += 1;
 
             if (_currentAmount == _goal)
             {
-                Debug.Log("U won");
+                _onGoalAccomplished.Invoke();
             }
         }
     }
