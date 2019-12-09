@@ -36,6 +36,8 @@ public class SpearPointCollision : MonoBehaviour
         rb.isKinematic = false;
         rb.useGravity = true;
         LockToObject _lock = fish.gameObject.GetComponent<LockToObject>();
+        fish.GetComponent<DisableCollision>().ToggleCollision();
+        fish.GetComponent<RagdollHandler>().RagdollActiveTo(true);
         if (_lock == null) {
             _lock = fish.gameObject.AddComponent<LockToObject>();
         }
