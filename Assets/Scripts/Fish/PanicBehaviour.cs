@@ -7,7 +7,6 @@ public class PanicBehaviour : StateMachineBehaviour
 {
     private float _maxVelocity = 1;
     private float _startY;
-    private Vector3 _obstacle;
     private Vector3 _panicPoint;
     private GameObject _this;
     private FOV _fov;
