@@ -54,7 +54,7 @@ public class PekBowl : MonoBehaviour
 
         if (!_hard)
         {
-            Physics.IgnoreCollision(this.gameObject.transform.GetChild(0).gameObject.GetComponent<Collider>(), _other.gameObject.GetComponent<Collider>());
+            Physics.IgnoreCollision(this.gameObject.transform.parent.gameObject.GetComponent<Collider>(), _other.gameObject.GetComponent<Collider>());
             if (_other.transform.childCount <= 0 && !_other.gameObject.CompareTag("PekPoint"))
             {
                 GameObject _p = Instantiate(_pek, _other.transform.position, Quaternion.identity);
@@ -73,7 +73,7 @@ public class PekBowl : MonoBehaviour
         if (_other.gameObject.layer != 10)
             return;
 
-        Physics.IgnoreCollision(this.gameObject.transform.GetChild(0).gameObject.GetComponent<Collider>(), _other.gameObject.GetComponent<Collider>(), false);
+        Physics.IgnoreCollision(this.gameObject.transform.parent.gameObject.GetComponent<Collider>(), _other.gameObject.GetComponent<Collider>(), false);
     }
 
     private void Heating()
