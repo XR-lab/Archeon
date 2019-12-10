@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.05029065, g: 0.06970132, b: 0.10662559, a: 1}
+  m_IndirectSpecularColor: {r: 0.05029065, g: 0.06970132, b: 0.10662606, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1003,6 +1003,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1435866988}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 23e174fd28c4b474889a950e72460536,
+        type: 3}
+      propertyPath: m_Name
+      value: steen (1)
+      objectReference: {fileID: 0}
     - target: {fileID: -5975033157549033438, guid: 23e174fd28c4b474889a950e72460536,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1083,11 +1088,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: eb2a3e5038b19584c96859227854d9a2, type: 2}
-    - target: {fileID: -927199367670048503, guid: 23e174fd28c4b474889a950e72460536,
-        type: 3}
-      propertyPath: m_Name
-      value: steen (1)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23e174fd28c4b474889a950e72460536, type: 3}
 --- !u!1001 &137240365
@@ -3141,6 +3141,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1435866988}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 23e174fd28c4b474889a950e72460536,
+        type: 3}
+      propertyPath: m_Name
+      value: steen
+      objectReference: {fileID: 0}
     - target: {fileID: -5975033157549033438, guid: 23e174fd28c4b474889a950e72460536,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -3236,11 +3241,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: eb2a3e5038b19584c96859227854d9a2, type: 2}
-    - target: {fileID: -927199367670048503, guid: 23e174fd28c4b474889a950e72460536,
-        type: 3}
-      propertyPath: m_Name
-      value: steen
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23e174fd28c4b474889a950e72460536, type: 3}
 --- !u!1001 &626772254
@@ -6309,6 +6309,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1296268286}
     m_Modifications:
+    - target: {fileID: 3673269974078649036, guid: d2c4828a9e4ee8045920771569de082d,
+        type: 3}
+      propertyPath: m_Name
+      value: Tree trunk prefab (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 333629540071243999, guid: d2c4828a9e4ee8045920771569de082d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6378,11 +6383,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 94.871765
-      objectReference: {fileID: 0}
-    - target: {fileID: 3673269974078649036, guid: d2c4828a9e4ee8045920771569de082d,
-        type: 3}
-      propertyPath: m_Name
-      value: Tree trunk prefab (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2c4828a9e4ee8045920771569de082d, type: 3}
@@ -10232,7 +10232,6 @@ GameObject:
   - component: {fileID: 1908772185}
   - component: {fileID: 1908772184}
   - component: {fileID: 1908772183}
-  - component: {fileID: 1908772182}
   m_Layer: 0
   m_Name: water
   m_TagString: Untagged
@@ -10240,20 +10239,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &1908772182
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1908772181}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1908772183
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21024,6 +21009,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1296268286}
     m_Modifications:
+    - target: {fileID: 3673269974078649036, guid: d2c4828a9e4ee8045920771569de082d,
+        type: 3}
+      propertyPath: m_Name
+      value: Tree trunk prefab
+      objectReference: {fileID: 0}
     - target: {fileID: 333629540071243999, guid: d2c4828a9e4ee8045920771569de082d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21093,11 +21083,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 74.27701
-      objectReference: {fileID: 0}
-    - target: {fileID: 3673269974078649036, guid: d2c4828a9e4ee8045920771569de082d,
-        type: 3}
-      propertyPath: m_Name
-      value: Tree trunk prefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2c4828a9e4ee8045920771569de082d, type: 3}
@@ -25883,11 +25868,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6580775318482093424}
     m_Modifications:
-    - target: {fileID: 7420009923503512263, guid: 2232ed3f6a1f6414984beef52111514a,
-        type: 3}
-      propertyPath: m_Name
-      value: Water ripple plane
-      objectReference: {fileID: 0}
     - target: {fileID: 7420009923503512259, guid: 2232ed3f6a1f6414984beef52111514a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25957,6 +25937,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.10888344
+      objectReference: {fileID: 0}
+    - target: {fileID: 7420009923503512263, guid: 2232ed3f6a1f6414984beef52111514a,
+        type: 3}
+      propertyPath: m_Name
+      value: Water ripple plane
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2232ed3f6a1f6414984beef52111514a, type: 3}
