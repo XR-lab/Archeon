@@ -10,6 +10,14 @@ public class PekBowl : MonoBehaviour
     private bool _hard = true;
     [SerializeField]
     private float _heatingTime = 0;
+    [SerializeField]
+    private GameObject _gFluid;
+    private Fluid _fluid;
+
+    [SerializeField]
+    private GameObject _pek;
+
+    private void Start() { _fluid = _gFluid.GetComponent<Fluid>(); }
 
     private void Update()
     {
@@ -30,6 +38,8 @@ public class PekBowl : MonoBehaviour
         {
             _hard = false;
         }
+
+        ManageFluid();
     }
 
     private void OnTriggerEnter(Collider _other)
@@ -45,6 +55,11 @@ public class PekBowl : MonoBehaviour
         if (!_hard)
         {
             Physics.IgnoreCollision(this.gameObject.transform.GetChild(0).gameObject.GetComponent<Collider>(), _other.gameObject.GetComponent<Collider>());
+            if (_other.transform.childCount <= 0 && !_other.gameObject.CompareTag("PekPoint"))
+            {
+                GameObject _p = Instantiate(_pek, _other.transform.position, Quaternion.identity);
+                _p.transform.SetParent(_other.transform);
+            }
         }
     }
 
@@ -75,5 +90,11 @@ public class PekBowl : MonoBehaviour
         {
             _heatingTime -= .15f;
         }
+    }
+
+    private void ManageFluid()
+    {
+        _fluid._sloshSpeed = Mathf.RoundToInt(_heatingTime * 10 / 100);
+        _fluid._rotateSpeed = Mathf.RoundToInt(_heatingTime * 60 / 100);
     }
 }
