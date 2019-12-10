@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.archeon.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\Practoraat HNK\\Desktop\\Archeon\\actions.json",
+      "action_manifest_path": "D:\\Development\\Archeon\\actions.json",
       "strings": {
         "en_us": {
           "name": "Archeon [Testing]"
