@@ -5,13 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/COPY THIS.unity
-    guid: cbfe36cfddfde964d9dfce63a355d5dd
-  - enabled: 0
-    path: Assets/Scenes/sprint1kamp 1.unity
-    guid: 83629d89319e6d54ba7ecf1607655d4e
   - enabled: 1
-    path: Assets/Scenes/ViveIndex/ViveIndex.unity
-    guid: fe655e23b0a695742be19dcbc67120c5
+    path: Assets/Art/Art groep02 Demo scene.unity
+    guid: 59c0b17ff4c82414d832c29a2277a5f6
   m_configObjects: {}
