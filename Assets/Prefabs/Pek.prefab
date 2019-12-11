@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8773332433824152211}
   - component: {fileID: 8773332433824152208}
   - component: {fileID: 8773332433824152209}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Pek
   m_TagString: Craftable
   m_Icon: {fileID: 0}
@@ -109,9 +109,9 @@ GameObject:
   - component: {fileID: 8773332434004290947}
   - component: {fileID: 8773332434004290944}
   - component: {fileID: 8773332434004290945}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Pek
-  m_TagString: Untagged
+  m_TagString: Craftable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -241,10 +241,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pek
       objectReference: {fileID: 0}
+    - target: {fileID: 5762651392442934067, guid: 25bba15c852f6bb4a8ae24b00d1f9cb7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5762651392442934065, guid: 25bba15c852f6bb4a8ae24b00d1f9cb7,
         type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5762651392442934065, guid: 25bba15c852f6bb4a8ae24b00d1f9cb7,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5762651392442934065, guid: 25bba15c852f6bb4a8ae24b00d1f9cb7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25bba15c852f6bb4a8ae24b00d1f9cb7, type: 3}

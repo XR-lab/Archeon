@@ -49,15 +49,16 @@ public class PekBowl : MonoBehaviour
             _heating = true;
         }
 
-        if (_other.gameObject.layer != 10)
+        if (_other.gameObject.layer != 11)
             return;
 
         if (!_hard)
         {
-            Physics.IgnoreCollision(this.gameObject.transform.parent.gameObject.GetComponent<Collider>(), _other.gameObject.GetComponent<Collider>());
-            if (_other.transform.childCount <= 0 && !_other.gameObject.CompareTag("PekPoint"))
+            Physics.IgnoreCollision(this.gameObject.transform.GetChild(0).gameObject.GetComponent<Collider>(), _other.gameObject.GetComponent<Collider>());
+            if (_other.transform.childCount <= 0 && _other.gameObject.CompareTag("PekPoint"))
             {
-                GameObject _p = Instantiate(_pek, _other.transform.position, Quaternion.identity);
+                GameObject _p = Instantiate(_pek, _other.transform.position, _other.transform.rotation);
+                Physics.IgnoreCollision(this.gameObject.transform.GetChild(0).gameObject.GetComponent<Collider>(), _p.transform.GetChild(0).gameObject.GetComponent<Collider>());
                 _p.transform.SetParent(_other.transform);
             }
         }
@@ -70,10 +71,10 @@ public class PekBowl : MonoBehaviour
             _heating = false;
         }
 
-        if (_other.gameObject.layer != 10)
+        if (_other.gameObject.layer != 11)
             return;
 
-        Physics.IgnoreCollision(this.gameObject.transform.parent.gameObject.GetComponent<Collider>(), _other.gameObject.GetComponent<Collider>(), false);
+        Physics.IgnoreCollision(this.gameObject.transform.GetChild(0).gameObject.GetComponent<Collider>(), _other.gameObject.GetComponent<Collider>(), false);
     }
 
     private void Heating()

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3726384330459196439}
   - component: {fileID: 3726384330459196438}
   - component: {fileID: 3726384330459196433}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Throwable (FlintShard)
   m_TagString: Craftable
   m_Icon: {fileID: 0}

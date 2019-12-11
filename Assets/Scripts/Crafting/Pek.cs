@@ -56,7 +56,7 @@ public class Pek : MonoBehaviour
             _heating = true;
         }
 
-        if (_other.gameObject.layer != 10)
+        if (_other.gameObject.layer != 11)
             return;
 
         if (!_hard)
@@ -76,7 +76,7 @@ public class Pek : MonoBehaviour
             _heating = false;
         }
 
-        if (_other.gameObject.layer != 10)
+        if (_other.gameObject.layer != 11)
             return;
 
         _attachedGO.Remove(_other.gameObject.transform.parent.gameObject);
@@ -103,28 +103,15 @@ public class Pek : MonoBehaviour
     {
         foreach(GameObject _GO in _attachedGO)
         {
-            //FixedJoint _joint = this.gameObject.AddComponent<FixedJoint>();
-            //_joint.connectedBody = _GO.GetComponent<Rigidbody>();
-            //_joints.Add(_joint);
-            _GO.GetComponent<Rigidbody>().isKinematic = true;
             _GO.transform.SetParent(this.transform);
         }
     }
 
     private void UnStick()
     {
-        /*foreach (FixedJoint _joint in _joints)
-        {
-            Destroy(_joint);
-        }*/
         foreach (GameObject _GO in _attachedGO)
         {
             _GO.transform.SetParent(null);
-            _GO.GetComponent<Rigidbody>().isKinematic = false;
-            /*if (_GO.gameObject.GetComponent<Interactable>().enabled == false)
-            {
-                _GO.gameObject.GetComponent<Interactable>().enabled = true;
-            }*/
         }
     }
 }
