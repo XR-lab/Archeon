@@ -242,6 +242,69 @@ MonoBehaviour:
   enableDistantFog:
     m_OverrideState: 0
     m_Value: 1
+--- !u!114 &-2030928113944924781
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9008a067f4d626c4d8bc4bc48f04bb89, type: 3}
+  m_Name: AmbientOcclusion
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  intensity:
+    m_OverrideState: 1
+    m_Value: 1.02
+    min: 0
+    max: 4
+  stepCount:
+    m_OverrideState: 1
+    m_Value: 6
+    min: 2
+    max: 32
+  radius:
+    m_OverrideState: 1
+    m_Value: 2
+    min: 0.25
+    max: 5
+  fullResolution:
+    m_OverrideState: 1
+    m_Value: 1
+  maximumRadiusInPixels:
+    m_OverrideState: 1
+    m_Value: 40
+    min: 16
+    max: 256
+  directLightingStrength:
+    m_OverrideState: 1
+    m_Value: 0
+    min: 0
+    max: 1
+  enableRaytracing:
+    m_OverrideState: 1
+    m_Value: 0
+  rayLength:
+    m_OverrideState: 1
+    m_Value: 0.5
+    min: 0
+    max: 50
+  enableFilter:
+    m_OverrideState: 1
+    m_Value: 0
+  numSamples:
+    m_OverrideState: 1
+    m_Value: 4
+    min: 1
+    max: 64
+  filterRadius:
+    m_OverrideState: 1
+    m_Value: 16
+    min: 1
+    max: 32
 --- !u!114 &-1570261112841141623
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -402,13 +465,13 @@ MonoBehaviour:
   - {fileID: -2922712256961405151}
   - {fileID: -4625287451395340419}
   - {fileID: 9193379275086913761}
-  - {fileID: 5655659713112012742}
   - {fileID: -5746082961676823618}
   - {fileID: -1570261112841141623}
   - {fileID: -1399769354835616780}
   - {fileID: 8804366569660650443}
   - {fileID: 5753335186812199676}
   - {fileID: -845237538377483572}
+  - {fileID: -2030928113944924781}
 --- !u!114 &3299202816648595673
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -453,69 +516,6 @@ MonoBehaviour:
   cascadeShadowBorder3:
     m_OverrideState: 1
     m_Value: 0
---- !u!114 &5655659713112012742
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9008a067f4d626c4d8bc4bc48f04bb89, type: 3}
-  m_Name: AmbientOcclusion
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0.72
-    min: 0
-    max: 4
-  stepCount:
-    m_OverrideState: 1
-    m_Value: 8
-    min: 2
-    max: 32
-  radius:
-    m_OverrideState: 1
-    m_Value: 2.3
-    min: 0.25
-    max: 5
-  fullResolution:
-    m_OverrideState: 1
-    m_Value: 0
-  maximumRadiusInPixels:
-    m_OverrideState: 1
-    m_Value: 51
-    min: 16
-    max: 256
-  directLightingStrength:
-    m_OverrideState: 1
-    m_Value: 0.3
-    min: 0
-    max: 1
-  enableRaytracing:
-    m_OverrideState: 1
-    m_Value: 0
-  rayLength:
-    m_OverrideState: 1
-    m_Value: 0.5
-    min: 0
-    max: 50
-  enableFilter:
-    m_OverrideState: 1
-    m_Value: 0
-  numSamples:
-    m_OverrideState: 1
-    m_Value: 4
-    min: 1
-    max: 64
-  filterRadius:
-    m_OverrideState: 1
-    m_Value: 16
-    min: 1
-    max: 32
 --- !u!114 &5753335186812199676
 MonoBehaviour:
   m_ObjectHideFlags: 3
