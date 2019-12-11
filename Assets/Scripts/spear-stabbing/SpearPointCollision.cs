@@ -29,13 +29,10 @@ public class SpearPointCollision : MonoBehaviour
 
     void CatchFish(Transform fish) {
         Debug.LogError("Stabbing the fish: " + fish.name);
-        fish.GetComponent<Animator>().SetBool("IsDead", true);
+        fish.GetComponentInParent<Animator>().SetBool("IsDead", true);
         fish.rotation = _fishHolder.rotation;
         fish.position = _fishHolder.position;
-        LockToObject _lock = fish.gameObject.GetComponent<LockToObject>();
-        if (_lock == null) {
-            _lock = fish.gameObject.AddComponent<LockToObject>();
-        }
+        LockToObject _lock = fish.gameObject.GetComponentInParent<LockToObject>();
         _lock.enabled = true;
         _lock.SetFakeParent(transform);
     }
