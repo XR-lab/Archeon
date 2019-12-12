@@ -14,15 +14,29 @@ public class DialogueSequence : MonoBehaviour
     }
 
     [SerializeField]
+    private List<string> _actionSpecifiers;
+
+    [SerializeField]
     private List<DialogueAction> _actionSequence;
+
+    private bool nextAction = false;
+
+    private void next()
+    {
+        nextAction = true;
+    }
 
     public IEnumerator ActivateSequence()
     {
-        foreach (DialogueAction action in _actionSequence)
+        Debug.Log("Activate sequence " + _id);
+        for(int i = 0; i < _actionSequence.Count; i++)
         {
-            yield return new WaitForEndOfFrame();
-
-            StartCoroutine(action.Action(action.delay));
+            DialogueAction action = _actionSequence[i];
+            StartCoroutine(action.Action(_actionSpecifiers[i],next));
+            yield return new WaitUntil(() => nextAction);
+            nextAction = false;
+            Debug.Log(i);
         }
+        Debug.Log("Sequence " + Id + " finished");
     }
 }
