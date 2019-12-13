@@ -9,39 +9,42 @@ TagManager:
   - Craftable
   - projectile
   - SpearTip
+  - FxTemporaire
+  - Fire
+  - PekPoint
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  -
+  - 
   - Water
   - UI
-  -
-  -
+  - 
+  - 
   - PostProcessing
   - Terrain
   - Huntable
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
+  - Interactable
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - SpearTip
-  -
+  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0

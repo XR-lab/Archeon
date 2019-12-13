@@ -5,11 +5,7 @@
       "app_key": "application.generated.unity.archeon.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-<<<<<<< HEAD
-      "action_manifest_path": "D:\\Development\\Archeon\\actions.json",
-=======
       "action_manifest_path": "C:\\Users\\Practoraat HNK\\Desktop\\Archeon\\Assets\\StreamingAssets\\SteamVR\\actions.json",
->>>>>>> 6a920e339fe925ff1b4ca9f2b3eed41f4dd05a5a
       "strings": {
         "en_us": {
           "name": "Archeon [Testing]"
