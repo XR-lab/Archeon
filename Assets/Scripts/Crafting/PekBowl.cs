@@ -95,7 +95,7 @@ public class PekBowl : MonoBehaviour
 
     private void ManageFluid()
     {
-        _fluid._sloshSpeed = Mathf.RoundToInt(_heatingTime * 10 / 100);
+        _fluid._sloshSpeed = Mathf.RoundToInt(_heatingTime * 20 / 100);
         _fluid._rotateSpeed = Mathf.RoundToInt(_heatingTime * 60 / 100);
     }
 }

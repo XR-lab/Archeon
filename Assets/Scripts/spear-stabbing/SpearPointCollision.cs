@@ -10,7 +10,8 @@ public class SpearPointCollision : MonoBehaviour
     [SerializeField] private LayerMask _terrainLayer;
     [SerializeField] private LayerMask _huntingLayer;
     [SerializeField] private Transform _fishHolder;
-    //[SerializeField] private SteamVR_Skeleton_Pose _fishPose;
+    [SerializeField] private bool _canStabFish;
+    public bool CanStabFish { get { return _canStabFish; } set { _canStabFish = value; } }
     private bool _grabbed;
     public bool Grabbed { get { return _grabbed; } set { _grabbed = value; } }
     private bool _hasFishOnTip;
@@ -27,16 +28,24 @@ public class SpearPointCollision : MonoBehaviour
         }
     }
 
+    public void StickToPek(Transform trans, SpearPointCollision previousPoint) {
+        Destroy(transform.parent.GetComponent<Throwable>());
+        Destroy(transform.parent.GetComponent<Valve.VR.InteractionSystem.Interactable>());
+        _rb = transform.root.GetComponent<Rigidbody>();
+        _fishHolder = trans;
+        GetComponent<Collider>().isTrigger = true;
+    }
+
     void CatchFish(Transform fish) {
         Debug.LogError("Stabbing the fish: " + fish.name);
-        fish.GetComponent<Animator>().SetBool("IsDead", true);
-        fish.rotation = _fishHolder.rotation;
-        fish.position = _fishHolder.position;
+        fish.GetComponent<Animator>()?.SetBool("IsDead", true);
+        fish.rotation = transform.root.rotation;
+        fish.position = transform.root.position;
         LockToObject _lock = fish.gameObject.GetComponent<LockToObject>();
         if (_lock == null) {
-            _lock = fish.gameObject.AddComponent<LockToObject>();
+            //_lock = fish.gameObject.AddComponent<LockToObject>();
+            _lock.enabled = true;
         }
-        _lock.enabled = true;
-        _lock.SetFakeParent(transform);
+        _lock?.SetFakeParent(transform);
     }
 }

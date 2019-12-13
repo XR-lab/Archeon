@@ -20,6 +20,7 @@ public class LockToObject : MonoBehaviour
     private bool _held;
 
     private Collider _col;
+    private Collider[] _cols;
 
     private void Start() {
         _instance = this;
@@ -46,7 +47,9 @@ public class LockToObject : MonoBehaviour
         _col.isTrigger = true;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         if (_trans != null) {
-            Physics.IgnoreCollision(_col, /*getting the collider of the spear itself*/_trans.parent.parent.parent.GetComponent<Collider>(), false);
+            foreach (Collider c in _cols) {
+                Physics.IgnoreCollision(_col, c, false);
+            }
         }
     }
 
@@ -69,7 +72,10 @@ public class LockToObject : MonoBehaviour
         _positionOffset = parent.position - transform.position;
         _rotationOffset = Quaternion.Inverse(parent.rotation * transform.rotation);
         _trans = parent;
-        Physics.IgnoreCollision(_col, _trans.parent.parent.parent.GetComponent<Collider>());
+        _cols = _trans.GetComponentsInParent<Collider>();
+        foreach (Collider c in _cols) {
+            Physics.IgnoreCollision(_col, c);
+        }
     }
 
     public Vector3 RotatePointAroundPivot(Vector3 point, Vector3 pivot, Quaternion rotation) {

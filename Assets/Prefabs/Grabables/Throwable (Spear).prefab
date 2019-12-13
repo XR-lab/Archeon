@@ -58,6 +58,8 @@ GameObject:
   - component: {fileID: 5160634712018190391}
   - component: {fileID: 5160634712018190388}
   - component: {fileID: 5160634712018190389}
+  - component: {fileID: 7306424487642256328}
+  - component: {fileID: -6655088330348533499}
   m_Layer: 0
   m_Name: Throwable (Spear)
   m_TagString: Craftable
@@ -248,6 +250,32 @@ MonoBehaviour:
   previewPoseSelection: 0
   blendingBehaviours: []
   scale: 1
+--- !u!114 &7306424487642256328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160634712018190386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db04dd68320c1024d8ae813cc491f411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6655088330348533499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160634712018190386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1148be29b95641409386df845c0cb2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 2
+  _canRotate: 0
 --- !u!1 &5160634712205247316
 GameObject:
   m_ObjectHideFlags: 0
