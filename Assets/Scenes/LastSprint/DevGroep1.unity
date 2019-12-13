@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.05029065, g: 0.06970132, b: 0.10662606, a: 1}
+  m_IndirectSpecularColor: {r: 0.05029065, g: 0.06970132, b: 0.10662559, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -942,6 +942,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   _fishHolder: {fileID: 95070591}
+  _canStabFish: 0
 --- !u!23 &362419475
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2659,6 +2660,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   _fishHolder: {fileID: 0}
+  _canStabFish: 0
 --- !u!1 &843488008
 GameObject:
   m_ObjectHideFlags: 0
@@ -5904,6 +5906,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   _fishHolder: {fileID: 5160634711600342498}
+  _canStabFish: 0
 --- !u!64 &1622060357
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6345,6 +6348,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   _fishHolder: {fileID: 0}
+  _canStabFish: 0
 --- !u!1 &1754828384
 GameObject:
   m_ObjectHideFlags: 0
@@ -6514,6 +6518,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   _fishHolder: {fileID: 0}
+  _canStabFish: 0
 --- !u!1 &1824262922
 GameObject:
   m_ObjectHideFlags: 0
@@ -7350,6 +7355,46 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3847699128060112966, guid: cdea54405513f7e44b43cf297c197cda,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7051767
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847699128060112966, guid: cdea54405513f7e44b43cf297c197cda,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.05221019
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847699128060112966, guid: cdea54405513f7e44b43cf297c197cda,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.052210182
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847699128060112966, guid: cdea54405513f7e44b43cf297c197cda,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70517665
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847699128060112966, guid: cdea54405513f7e44b43cf297c197cda,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 8.469001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847699128060112966, guid: cdea54405513f7e44b43cf297c197cda,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847699128060112962, guid: cdea54405513f7e44b43cf297c197cda,
+        type: 3}
+      propertyPath: _cam
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847699128060112962, guid: cdea54405513f7e44b43cf297c197cda,
+        type: 3}
+      propertyPath: _target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdea54405513f7e44b43cf297c197cda, type: 3}
 --- !u!1 &1929223059
@@ -7871,6 +7916,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   _fishHolder: {fileID: 1341657966}
+  _canStabFish: 0
 --- !u!23 &2105896776
 MeshRenderer:
   m_ObjectHideFlags: 0
