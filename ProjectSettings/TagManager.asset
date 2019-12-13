@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Flint
+  - Stone
+  - Craftable
+  - projectile
+  - SpearTip
+  - FxTemporaire
+  - Fire
+  - PekPoint
   layers:
   - Default
   - TransparentFX
@@ -14,6 +22,9 @@ TagManager:
   - 
   - 
   - PostProcessing
+  - Terrain
+  - Huntable
+  - Interactable
   - 
   - 
   - 
@@ -32,10 +43,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - SpearTip
   - 
   m_SortingLayers:
   - name: Default
