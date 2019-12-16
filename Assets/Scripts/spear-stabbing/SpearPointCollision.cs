@@ -10,8 +10,8 @@ public class SpearPointCollision : MonoBehaviour
     [SerializeField] private LayerMask _terrainLayer;
     [SerializeField] private LayerMask _huntingLayer;
     [SerializeField] private Transform _fishHolder;
+    public Transform FishHolder { get { return _fishHolder; } set { _fishHolder = value; } }
     [SerializeField] private bool _canStabFish;
-    public bool CanStabFish { get { return _canStabFish; } set { _canStabFish = value; } }
     private bool _grabbed;
     public bool Grabbed { get { return _grabbed; } set { _grabbed = value; } }
     private bool _hasFishOnTip;
@@ -22,7 +22,7 @@ public class SpearPointCollision : MonoBehaviour
         if (_terrainLayer == (_terrainLayer | ( 1 << other.gameObject.layer)) && !_grabbed) {
             _rb.isKinematic = true;
         }
-        if (_huntingLayer == (_huntingLayer | (1 << other.gameObject.layer)) && !_hasFishOnTip) {
+        if (_huntingLayer == (_huntingLayer | (1 << other.gameObject.layer)) && !_hasFishOnTip && _canStabFish) {
             _hasFishOnTip = true;
             CatchFish(other.gameObject.transform);
         }
@@ -34,6 +34,7 @@ public class SpearPointCollision : MonoBehaviour
         _rb = transform.root.GetComponent<Rigidbody>();
         _fishHolder = trans;
         GetComponent<Collider>().isTrigger = true;
+        Destroy(previousPoint);
     }
 
     void CatchFish(Transform fish) {
@@ -42,10 +43,7 @@ public class SpearPointCollision : MonoBehaviour
         fish.rotation = transform.root.rotation;
         fish.position = transform.root.position;
         LockToObject _lock = fish.gameObject.GetComponent<LockToObject>();
-        if (_lock == null) {
-            //_lock = fish.gameObject.AddComponent<LockToObject>();
-            _lock.enabled = true;
-        }
-        _lock?.SetFakeParent(transform);
+        _lock.enabled = true;
+        _lock?.SetFakeParent(transform.parent);
     }
 }
