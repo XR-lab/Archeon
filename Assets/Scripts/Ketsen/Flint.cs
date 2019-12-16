@@ -11,7 +11,7 @@ public class Flint : MonoBehaviour
     private GameObject _spark;
     [SerializeField]
     public List<GameObject> _flintShard = new List<GameObject>();
-    public GameObject _interactable;
+    public List<GameObject> _interactable = new List<GameObject>();
 
     private bool _cd;
     private float _cdTime = 20;
@@ -44,9 +44,10 @@ public class Flint : MonoBehaviour
             if(!_cd)
             {
                 //Instantiate(_spark, (this.transform.position + _col.transform.position) / 2, Quaternion.identity);
-                GameObject _splinter = _flintShard[Random.Range(0, _flintShard.Count)];
+                int _randomShard = Random.Range(0, _flintShard.Count);
+                GameObject _splinter = _flintShard[_randomShard];
                 _flintShard.Remove(_splinter);
-                GameObject _g = Instantiate(_interactable, _splinter.transform.position, Quaternion.identity);
+                GameObject _g = Instantiate(_interactable[_randomShard], _splinter.transform.position, Quaternion.identity);
                 _splinter.transform.SetParent(_g.transform);
                 _cd = true;
                 _cdTime = 20;
