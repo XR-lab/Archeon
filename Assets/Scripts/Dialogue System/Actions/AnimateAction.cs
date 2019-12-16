@@ -13,6 +13,12 @@ public class AnimateAction : DialogueAction
     private List<string> _triggers;
 
     [SerializeField]
+    private List<string> _callbackSpecifiers;
+
+    [SerializeField]
+    private List<DialogueAction> _callbacks;
+
+    [SerializeField]
     private int _animatorLayer;
 
     [SerializeField]
@@ -33,9 +39,17 @@ public class AnimateAction : DialogueAction
         {
             _animator.SetTrigger(_triggers[i]);
 
-            yield return new WaitUntil(() => _animator.GetAnimatorTransitionInfo(_animatorLayer).IsName(_triggers[i]));
+            yield return new WaitForSeconds(_animator.GetAnimatorTransitionInfo(_animatorLayer).duration);
+
+            //The callback doesn't work along the chronology of the dialogue script.
+            if (_callbacks[i] && _callbackSpecifiers[i] != "" && _callbackSpecifiers != null)
+            {
+                StartCoroutine(_callbacks[i].Action(_callbackSpecifiers[i], null));
+            }
 
             yield return new WaitForSeconds(_animator.GetCurrentAnimatorClipInfo(_animatorLayer)[_animatorLayer].clip.length);
+
+            _animator.ResetTrigger(_triggers[i]);
         }
 
         callback?.Invoke();
