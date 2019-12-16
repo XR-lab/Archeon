@@ -10,7 +10,8 @@ public class SpearPointCollision : MonoBehaviour
     [SerializeField] private LayerMask _terrainLayer;
     [SerializeField] private LayerMask _huntingLayer;
     [SerializeField] private Transform _fishHolder;
-    //[SerializeField] private SteamVR_Skeleton_Pose _fishPose;
+    public Transform FishHolder { get { return _fishHolder; } set { _fishHolder = value; } }
+    [SerializeField] private bool _canStabFish;
     private bool _grabbed;
     public bool Grabbed { get { return _grabbed; } set { _grabbed = value; } }
     private bool _hasFishOnTip;
@@ -21,22 +22,28 @@ public class SpearPointCollision : MonoBehaviour
         if (_terrainLayer == (_terrainLayer | ( 1 << other.gameObject.layer)) && !_grabbed) {
             _rb.isKinematic = true;
         }
-        if (_huntingLayer == (_huntingLayer | (1 << other.gameObject.layer)) && !_hasFishOnTip) {
+        if (_huntingLayer == (_huntingLayer | (1 << other.gameObject.layer)) && !_hasFishOnTip && _canStabFish) {
             _hasFishOnTip = true;
             CatchFish(other.gameObject.transform);
         }
     }
 
+    public void StickToPek(Transform trans, SpearPointCollision previousPoint) {
+        Destroy(transform.parent.GetComponent<Throwable>());
+        Destroy(transform.parent.GetComponent<Valve.VR.InteractionSystem.Interactable>());
+        _rb = transform.root.GetComponent<Rigidbody>();
+        _fishHolder = trans;
+        GetComponent<Collider>().isTrigger = true;
+        Destroy(previousPoint);
+    }
+
     void CatchFish(Transform fish) {
         Debug.LogError("Stabbing the fish: " + fish.name);
-        fish.GetComponent<Animator>().SetBool("IsDead", true);
-        fish.rotation = _fishHolder.rotation;
-        fish.position = _fishHolder.position;
+        fish.GetComponent<Animator>()?.SetBool("IsDead", true);
+        fish.rotation = transform.root.rotation;
+        fish.position = transform.root.position;
         LockToObject _lock = fish.gameObject.GetComponent<LockToObject>();
-        if (_lock == null) {
-            _lock = fish.gameObject.AddComponent<LockToObject>();
-        }
         _lock.enabled = true;
-        _lock.SetFakeParent(transform);
+        _lock?.SetFakeParent(transform.parent);
     }
 }
