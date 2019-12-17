@@ -6805,6 +6805,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Throwable (Pek_Bowl)
       objectReference: {fileID: 0}
+    - target: {fileID: 5807805492938126968, guid: 1176036ee9cfdf5449a5ae48bc19f6d4,
+        type: 3}
+      propertyPath: overridePreviewLeftHandPrefab
+      value: 
+      objectReference: {fileID: 1000013348574242, guid: c8808006295c5834abc20048ac8c4f49,
+        type: 3}
+    - target: {fileID: 5807805492938126968, guid: 1176036ee9cfdf5449a5ae48bc19f6d4,
+        type: 3}
+      propertyPath: overridePreviewRightHandPrefab
+      value: 
+      objectReference: {fileID: 1000010304998954, guid: 7d1f34ac90891c942acae4b81fc7ee59,
+        type: 3}
+    - target: {fileID: 5807805492938126968, guid: 1176036ee9cfdf5449a5ae48bc19f6d4,
+        type: 3}
+      propertyPath: showLeftPreview
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5807805492938126968, guid: 1176036ee9cfdf5449a5ae48bc19f6d4,
+        type: 3}
+      propertyPath: previewLeftInstance
+      value: 
+      objectReference: {fileID: 1073291908}
+    - target: {fileID: 5807805492938126968, guid: 1176036ee9cfdf5449a5ae48bc19f6d4,
+        type: 3}
+      propertyPath: showRightPreview
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5807805492938126968, guid: 1176036ee9cfdf5449a5ae48bc19f6d4,
+        type: 3}
+      propertyPath: previewRightInstance
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8334431412087965198, guid: 1176036ee9cfdf5449a5ae48bc19f6d4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6859,38 +6891,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5807805492938126968, guid: 1176036ee9cfdf5449a5ae48bc19f6d4,
-        type: 3}
-      propertyPath: overridePreviewLeftHandPrefab
-      value: 
-      objectReference: {fileID: 1000013348574242, guid: c8808006295c5834abc20048ac8c4f49,
-        type: 3}
-    - target: {fileID: 5807805492938126968, guid: 1176036ee9cfdf5449a5ae48bc19f6d4,
-        type: 3}
-      propertyPath: overridePreviewRightHandPrefab
-      value: 
-      objectReference: {fileID: 1000010304998954, guid: 7d1f34ac90891c942acae4b81fc7ee59,
-        type: 3}
-    - target: {fileID: 5807805492938126968, guid: 1176036ee9cfdf5449a5ae48bc19f6d4,
-        type: 3}
-      propertyPath: showLeftPreview
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5807805492938126968, guid: 1176036ee9cfdf5449a5ae48bc19f6d4,
-        type: 3}
-      propertyPath: previewLeftInstance
-      value: 
-      objectReference: {fileID: 1073291908}
-    - target: {fileID: 5807805492938126968, guid: 1176036ee9cfdf5449a5ae48bc19f6d4,
-        type: 3}
-      propertyPath: showRightPreview
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5807805492938126968, guid: 1176036ee9cfdf5449a5ae48bc19f6d4,
-        type: 3}
-      propertyPath: previewRightInstance
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 268449500265108150, guid: 1176036ee9cfdf5449a5ae48bc19f6d4,
         type: 3}
@@ -13054,130 +13054,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1826648057}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1863434369 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2189522217027346892, guid: 8edcffde6ab03b44d8147b3fad38650c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1537183579}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1863434374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1863434369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffefbea063cab884ca33e5a449e5c22c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attachmentFlags: 44
-  attachmentOffset: {fileID: 0}
-  catchingSpeedThreshold: -1
-  releaseVelocityStyle: 1
-  releaseVelocityTimeOffset: -0.011
-  scaleReleaseVelocity: 1.1
-  scaleReleaseVelocityThreshold: -1
-  scaleReleaseVelocityCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  restoreOriginalParent: 0
-  onPickUp:
-    m_PersistentCalls:
-      m_Calls: []
-  onDetachFromHand:
-    m_PersistentCalls:
-      m_Calls: []
-  onHeldUpdate:
-    m_PersistentCalls:
-      m_Calls: []
-  interactable: {fileID: 0}
---- !u!114 &1863434375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1863434369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activateActionSetOnAttach:
-    actionSetPath: 
-  hideHandOnAttach: 0
-  hideSkeletonOnAttach: 0
-  hideControllerOnAttach: 1
-  handAnimationOnPickup: 0
-  setRangeOfMotionOnPickup: -1
-  useHandObjectAttachmentPoint: 1
-  attachEaseIn: 0
-  snapAttachEaseInCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  snapAttachEaseInTime: 0.15
-  snapAttachEaseInCompleted: 0
-  skeletonPoser: {fileID: 0}
-  handFollowTransform: 1
-  highlightOnHover: 0
-  hideHighlight: []
-  hoverPriority: 0
---- !u!114 &1863434376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1863434369}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7677299f28958b147882a8f096402d45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1868991224
 GameObject:
   m_ObjectHideFlags: 0

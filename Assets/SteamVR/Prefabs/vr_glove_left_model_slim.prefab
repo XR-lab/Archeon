@@ -864,6 +864,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   mirroring: 2
+  fallbackPoser: {fileID: 0}
+  fallbackCurlAction:
+    actionPath: 
+    needsReinit: 0
 --- !u!1 &1000013396909066
 GameObject:
   m_ObjectHideFlags: 0

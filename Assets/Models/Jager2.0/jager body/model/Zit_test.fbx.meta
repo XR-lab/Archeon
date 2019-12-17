@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Models/Jager2.0/jager body/model/Zit_test.fbx.meta
 guid: 2dbe5f5b6c204c94cb9739cc4f53f69d
+=======
+guid: 054c85e655603b341b52f7470d5e01b0
+>>>>>>> f28bd201b8ee172b9a919533ebcd19e499729c79:Assets/Jager/jager body/model/Zit_test.fbx.meta
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:

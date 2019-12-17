@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Models/Jager2.0/jager body/material/jager body.mat.meta
 guid: cc7a6c6320348ec4da655feff7b14e00
+=======
+guid: 05287e01d7c937247a347ccc9fc80c71
+>>>>>>> f28bd201b8ee172b9a919533ebcd19e499729c79:Assets/Jager/jager body/material/jager body.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000

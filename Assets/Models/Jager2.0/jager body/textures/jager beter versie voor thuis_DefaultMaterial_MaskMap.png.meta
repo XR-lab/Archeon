@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Models/Jager2.0/jager body/textures/jager beter versie voor thuis_DefaultMaterial_MaskMap.png.meta
 guid: ff9f8b435cd51974f89372cc6605f598
+=======
+guid: fbc51f46ec43b954693ce6bfbbd1d0e4
+>>>>>>> f28bd201b8ee172b9a919533ebcd19e499729c79:Assets/Jager/jager body/textures/jager beter versie voor thuis_DefaultMaterial_MaskMap.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
