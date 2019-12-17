@@ -4,42 +4,43 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Handles
+  - Fire
+  - Craftable
   - SpearTip
-  - projectile
-  - FxTemporaire
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  -
   - Water
   - UI
-  - 
-  - 
+  -
+  -
   - PostProcessing
-  - Terrain
-  - Huntable
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  -
+  - Interactable
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  - SpearTip
+  -
   m_SortingLayers:
   - name: Default
     uniqueID: 0
