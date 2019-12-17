@@ -145,7 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attachedGO: []
   _hard: 1
-  _heatingTime: 0
+  _heatingTime: 60
 --- !u!135 &8773332434004290945
 SphereCollider:
   m_ObjectHideFlags: 0
