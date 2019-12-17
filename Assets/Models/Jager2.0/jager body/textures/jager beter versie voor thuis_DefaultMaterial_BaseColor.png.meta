@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Models/Jager2.0/jager body/textures/jager beter versie voor thuis_DefaultMaterial_BaseColor.png.meta
 guid: ae337742006cd0741af154de33263267
-=======
-guid: 460ad253452d39845909bb1c56c7c376
->>>>>>> f28bd201b8ee172b9a919533ebcd19e499729c79:Assets/Jager/jager body/textures/jager beter versie voor thuis_DefaultMaterial_BaseColor.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,16 +112,16 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID:
     internalID: 0
     vertices: []
-    indices: 
+    indices:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+  spritePackingTag:
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  userData:
+  assetBundleName:
+  assetBundleVariant:

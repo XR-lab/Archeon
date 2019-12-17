@@ -1,12 +1,8 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Models/Jager2.0/jager body/model/jager_unwrap_jager_unwrap.controller.meta
 guid: 83d94b98f5bca1646862f19a1bb0bcd0
-=======
-guid: e9c68a776062bac4eb7cedc134082a6b
->>>>>>> f28bd201b8ee172b9a919533ebcd19e499729c79:Assets/Jager/jager body/model/jager_unwrap_jager_unwrap.controller.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 9100000
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  userData:
+  assetBundleName:
+  assetBundleVariant:
