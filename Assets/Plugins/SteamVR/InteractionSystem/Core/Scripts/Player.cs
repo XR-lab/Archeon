@@ -42,11 +42,10 @@ namespace Valve.VR.InteractionSystem
 
 		public bool allowToggleTo2D = true;
 
-
-		//-------------------------------------------------
-		// Singleton instance of the Player. Only one can exist at a time.
-		//-------------------------------------------------
-		private static Player _instance;
+        //-------------------------------------------------
+        // Singleton instance of the Player. Only one can exist at a time.
+        //-------------------------------------------------
+        private static Player _instance;
 		public static Player instance
 		{
 			get
@@ -258,7 +257,6 @@ namespace Valve.VR.InteractionSystem
 			}
 		}
 
-
 		//-------------------------------------------------
 		private IEnumerator Start()
 		{
@@ -289,6 +287,7 @@ namespace Valve.VR.InteractionSystem
                 if (headsetOnHead.GetStateDown(SteamVR_Input_Sources.Head))
                 {
                     Debug.Log("<b>SteamVR Interaction System</b> Headset placed on head");
+
                 }
                 else if (headsetOnHead.GetStateUp(SteamVR_Input_Sources.Head))
                 {
