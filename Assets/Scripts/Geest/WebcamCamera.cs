@@ -4,6 +4,8 @@ public class WebcamCamera : MonoBehaviour
 {
     private bool _camAvailable;
     private WebCamTexture _webcamTexture;
+    [SerializeField]
+    private GameObject _target;
     
 
     private void Start()
@@ -28,4 +30,11 @@ public class WebcamCamera : MonoBehaviour
             _webcamTexture.Play();
         }
     }
+
+    private void Update()
+    {
+        Vector3 difference = _target.transform.position - transform.position;
+        float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(90f, 0.0f, rotationZ + 90);
+    } 
 }
