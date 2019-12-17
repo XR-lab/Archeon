@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
+    [SerializeField] private bool _hasDefaultSound = true;
 
     [SerializeField] private AudioClip _defaultAudio;
 
@@ -21,17 +22,20 @@ public class AudioManager : MonoBehaviour
 
     private void OnCollisionEnter(Collision _col)
     {
-        for (int i = 0; i < _specialObjects.Length; i++)
+        if (_hasDefaultSound)
         {
-            if (_col.gameObject.name == _specialObjects[i])
+            for (int i = 0; i < _specialObjects.Length; i++)
             {
-                _audio.clip = _specialAudio[i];
-                break;
-            }
+                if (_col.gameObject.name == _specialObjects[i])
+                {
+                    _audio.clip = _specialAudio[i];
+                    break;
+                }
 
-            if (i == _specialObjects.Length && _col.gameObject.name != _specialObjects[_specialObjects.Length])
-            {
-                _audio.clip = _defaultAudio;
+                if (i == _specialObjects.Length && _col.gameObject.name != _specialObjects[_specialObjects.Length])
+                {
+                    _audio.clip = _defaultAudio;
+                }
             }
         }
     }
