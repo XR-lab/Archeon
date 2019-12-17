@@ -4,10 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Handles
-  - Fire
+  - Flint
+  - Stone
   - Craftable
+  - projectile
   - SpearTip
+  - FxTemporaire
+  - Fire
+  - PekPoint
   layers:
   - Default
   - TransparentFX
@@ -18,9 +22,9 @@ TagManager:
   -
   -
   - PostProcessing
-  -
+  - Terrain
+  - Huntable
   - Interactable
-  -
   -
   -
   -
