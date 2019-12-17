@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 7306424487642256328}
   - component: {fileID: -6655088330348533499}
   - component: {fileID: 8153464671283865298}
-  - component: {fileID: 8754974694474437606}
+  - component: {fileID: 5643940454823886658}
   m_Layer: 11
   m_Name: Throwable (Spear)
   m_TagString: Craftable
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocityAverageFrames: 5
-  angularVelocityAverageFrames: 1
+  angularVelocityAverageFrames: 11
   estimateOnAwake: 0
 --- !u!114 &5160634712018190391
 MonoBehaviour:
@@ -153,9 +153,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activateActionSetOnAttach:
     actionSetPath: 
-  hideHandOnAttach: 0
+  hideHandOnAttach: 1
   hideSkeletonOnAttach: 0
-  hideControllerOnAttach: 1
+  hideControllerOnAttach: 0
   handAnimationOnPickup: 0
   setRangeOfMotionOnPickup: -1
   useHandObjectAttachmentPoint: 1
@@ -170,8 +170,8 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
@@ -179,8 +179,8 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -188,7 +188,7 @@ MonoBehaviour:
   snapAttachEaseInCompleted: 0
   skeletonPoser: {fileID: 0}
   handFollowTransform: 1
-  highlightOnHover: 0
+  highlightOnHover: 1
   hideHighlight: []
   hoverPriority: 0
 --- !u!114 &5160634712018190388
@@ -203,10 +203,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffefbea063cab884ca33e5a449e5c22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachmentFlags: 81
+  attachmentFlags: 44
   attachmentOffset: {fileID: 0}
   catchingSpeedThreshold: -1
-  releaseVelocityStyle: 3
+  releaseVelocityStyle: 1
   releaseVelocityTimeOffset: -0.011
   scaleReleaseVelocity: 1.1
   scaleReleaseVelocityThreshold: -1
@@ -259,21 +259,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poseEditorExpanded: 1
   blendEditorExpanded: 1
-  poseNames:
-  - SpearPose (MAIN)
-  overridePreviewLeftHandPrefab: {fileID: 1000013348574242, guid: c8808006295c5834abc20048ac8c4f49,
-    type: 3}
-  overridePreviewRightHandPrefab: {fileID: 1000010304998954, guid: 7d1f34ac90891c942acae4b81fc7ee59,
-    type: 3}
-  skeletonMainPose: {fileID: 11400000, guid: 89198b91d0e26b94092b19fe69d05a71, type: 2}
+  poseNames: []
+  overridePreviewLeftHandPrefab: {fileID: 0}
+  overridePreviewRightHandPrefab: {fileID: 0}
+  skeletonMainPose: {fileID: 0}
   skeletonAdditionalPoses: []
   showLeftPreview: 0
-  showRightPreview: 0
+  showRightPreview: 1
   previewLeftInstance: {fileID: 0}
   previewRightInstance: {fileID: 0}
   previewPoseSelection: 0
   blendingBehaviours: []
-  scale: 1
+  scale: 0
 --- !u!114 &7306424487642256328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationSpeed: 2
-  _canRotate: 1
+  _canRotate: 0
 --- !u!136 &8153464671283865298
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -314,7 +311,7 @@ CapsuleCollider:
   m_Height: 1.64
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
---- !u!82 &8754974694474437606
+--- !u!82 &5643940454823886658
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -324,7 +321,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f012c77cf6447b640929b8544e535f24, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 44a8716ee85a72b4c8a130e0cb255b08, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
