@@ -11,6 +11,8 @@ public class ParticleSpawner : MonoBehaviour {
 
     private List<GameObject> _particlePool;
 
+    private ParticleSystem[] _particleSystems;
+
     void Start() {
         _particlePool = new List<GameObject>();
     }
@@ -37,14 +39,19 @@ public class ParticleSpawner : MonoBehaviour {
         if (obj == null) {
             obj = Instantiate(_particleEmitter, position, Quaternion.identity);
             _particlePool.Add(obj);
-            obj.GetComponent<VisualEffect>().Play();
+            _particleSystems = obj.GetComponentsInChildren<ParticleSystem>();
+            foreach (ParticleSystem p in _particleSystems) {
+                p.Play();
+            }
+            GetComponentInChildren<Animator>()?.StartPlayback();
+
             StartCoroutine(DisableAfter(obj, _particleMaxDuration));
         }
     }
 
     public IEnumerator DisableAfter(GameObject obj, float delay) {
         yield return new WaitForSeconds(delay);
-        obj.GetComponent<VisualEffect>().Stop();
+        GetComponentInChildren<Animator>()?.StopPlayback();
         obj.SetActive(false);
     }
 
