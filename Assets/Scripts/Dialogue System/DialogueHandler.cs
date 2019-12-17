@@ -19,12 +19,4 @@ public class DialogueHandler : MonoBehaviour
         }
         
     }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ActivateSequence("Test");
-        }
-    }
 }
