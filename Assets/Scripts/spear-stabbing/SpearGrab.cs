@@ -4,19 +4,28 @@ using UnityEngine;
 
 public class SpearGrab : MonoBehaviour {
     private Rigidbody _rb;
-    private SpearPointCollision _point;
+    private SpearPointCollision[] _points;
 
     void Start() {
         _rb = GetComponent<Rigidbody>();
-        _point = GetComponentInChildren<SpearPointCollision>();
+        _points = GetComponentsInChildren<SpearPointCollision>();
     }
 
     public void OnPickUp() {
-        _point.Grabbed = true;
-        _rb.isKinematic = false;
+        if (_points.Length > 0) {
+            foreach (SpearPointCollision p in _points) {
+                p.Grabbed = true;
+            }
+        }
+        _rb.isKinematic = false;        
+        GetComponent<AudioSource>().Play();
     }
 
     public void OnDrop() {
-        _point.Grabbed = false;
+        if (_points.Length > 0) {
+            foreach (SpearPointCollision p in _points) {
+                p.Grabbed = false;
+            }
+        }
     }
 }
