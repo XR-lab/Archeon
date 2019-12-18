@@ -23,16 +23,16 @@ public class Pek : MonoBehaviour {
             Cooling();
         }
 
-        if (_heatingTime < 30) {
+        if (_heatingTime < 20) {
             _hard = true;
             if (!_sticked) {
                 Stick();
                 _sticked = true;
             }
-        } else if (_heatingTime > 30 && _heatingTime < 100) {
+        } else if (_heatingTime > 20 && _heatingTime < 60) {
             _hard = false;
             _sticked = false;
-        } else if (_heatingTime > 100) {
+        } else if (_heatingTime > 60) {
             Destroy(this.gameObject);
             UnStick();
         }

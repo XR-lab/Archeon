@@ -37,5 +37,9 @@ public class DialogueHandler : MonoBehaviour
         ActivateSequence("INTRO");
     }
 
+    public void EndSequence() {
+        ActivateSequence("WIN");
+    }
+
     
 }
