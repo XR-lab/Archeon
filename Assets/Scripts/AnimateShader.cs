@@ -8,6 +8,8 @@ public class AnimateShader : MonoBehaviour
 
     bool _animation = false;
 
+    [SerializeField] private float _animateTime = 1f;
+
     private void Start() 
     {
         _mat = GetComponent<Renderer>().material;
@@ -35,24 +37,22 @@ public class AnimateShader : MonoBehaviour
         float _value = 0f;
         while (_value < 1f)
         {
-            _value += Time.deltaTime;
+            _value += Time.deltaTime / _animateTime;
             _value = Mathf.Clamp01(_value);
 
             _mat?.SetFloat("_value", _value);
-
-            yield return null;
+            yield return new WaitForEndOfFrame();
         }
     }
 
     IEnumerator AnimateDown() {
         float _value = 1f;
         while (_value > 0f) {
-            _value -= Time.deltaTime;
+            _value -= Time.deltaTime / _animateTime;
             _value = Mathf.Clamp01(_value);
 
             _mat?.SetFloat("_value", _value);
-
-            yield return null;
+            yield return new WaitForEndOfFrame();
         }
     }
 }
