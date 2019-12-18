@@ -16965,6 +16965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847bdb26925b13a43904537abfda9400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animateTime: 1
 --- !u!1001 &1663771491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18534,6 +18535,7 @@ GameObject:
   - component: {fileID: 1908772185}
   - component: {fileID: 1908772184}
   - component: {fileID: 1908772183}
+  - component: {fileID: 1908772182}
   m_Layer: 0
   m_Name: water
   m_TagString: Untagged
@@ -18541,6 +18543,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1908772182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908772181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452dfaeb5e11c0748b093851d8876c31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particleEmitter: {fileID: 9021262196709288028, guid: e11a47d9072063448bb2b7e3065b8a2c,
+    type: 3}
+  _particleMaxDuration: 0.75
+  _detectedLayers:
+    serializedVersion: 2
+    m_Bits: 1073744896
 --- !u!23 &1908772183
 MeshRenderer:
   m_ObjectHideFlags: 0
