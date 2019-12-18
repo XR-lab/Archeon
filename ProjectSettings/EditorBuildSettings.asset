@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Art/Art groep02 Demo scene.unity
-    guid: 59c0b17ff4c82414d832c29a2277a5f6
+    guid: 0b2da9b921fdd8d408dc6fcd6d1d3839
   m_configObjects: {}
